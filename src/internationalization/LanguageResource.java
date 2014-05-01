@@ -11,7 +11,8 @@ import java.util.ResourceBundle;
  * As this class is abstract, you cannot instantiate it. Instead, simply
  * use the static methods available.
  */
-public abstract class LanguageResource {
+public abstract class LanguageResource
+{
     private static Locale locale = new Locale("da", "DK");
     private static ResourceBundle bundle = ResourceBundle.getBundle(
         "properties.LanguageBundle", LanguageResource.locale
@@ -24,7 +25,8 @@ public abstract class LanguageResource {
      * @param id The ID of the text that you wish to retrieve.
      * @return The text you retrieved, as a String.
      */
-    public static String getText(String id) {
+    public static String getText(String id)
+    {
         return LanguageResource.bundle.getString(id);
     }
 
@@ -36,14 +38,16 @@ public abstract class LanguageResource {
      * @param language Is the language that you want.
      * @param country Is the country of the desired language.
      */
-    public static void setLocale(String language, String country) {
+    public static void setLocale(String language, String country)
+    {
         LanguageResource.locale = new Locale(language, country);
         LanguageResource.bundle = ResourceBundle.getBundle(
             "properties.LanguageBundle", LanguageResource.locale
         );
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println(LanguageResource.getText("test"));
         LanguageResource.setLocale("en","US");
         System.out.println(LanguageResource.getText("test"));
