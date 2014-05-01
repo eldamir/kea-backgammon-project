@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public abstract class LanguageResource {
     private static Locale locale = new Locale("da", "DK");
     private static ResourceBundle bundle = ResourceBundle.getBundle(
-        "LanguageBundle", LanguageResource.locale
+        "properties.LanguageBundle", LanguageResource.locale
     );
 
 
@@ -33,11 +33,19 @@ public abstract class LanguageResource {
      * Due to localization differences of language, e.g. American english
      * and British english, but country and language is required.
      *
-     * @param country Is the country of the desired language.
      * @param language Is the language that you want.
+     * @param country Is the country of the desired language.
      */
-    public static void setLocale(String country, String language) {
+    public static void setLocale(String language, String country) {
         LanguageResource.locale = new Locale(language, country);
-        LanguageResource.bundle = ResourceBundle.getBundle("LanguageBundle", LanguageResource.locale);
+        LanguageResource.bundle = ResourceBundle.getBundle(
+            "properties.LanguageBundle", LanguageResource.locale
+        );
+    }
+
+    public static void main(String[] args) {
+        System.out.println(LanguageResource.getText("test"));
+        LanguageResource.setLocale("en","US");
+        System.out.println(LanguageResource.getText("test"));
     }
 }
