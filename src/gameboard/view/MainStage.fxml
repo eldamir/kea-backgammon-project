@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="605.999977929685" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gameboard.controller.MainBoardController">
+  <children>
+    <HBox id="HBox" alignment="CENTER" layoutX="0.0" layoutY="0.0" spacing="5.0" />
+    <ImageView id="PrimevalD.gif" fitHeight="450.0" fitWidth="518.0" layoutX="0.0" layoutY="0.0">
+      <image>
+        <Image url="@../resources/PrimevalD.gif" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <ImageView id="homeFields.png" fitHeight="462.9999694824219" fitWidth="88.00000762939453" layoutX="518.0" layoutY="-13.0" preserveRatio="false">
+      <image>
+        <Image url="@../resources/homeFields.png" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+  </children>
+</AnchorPane>
