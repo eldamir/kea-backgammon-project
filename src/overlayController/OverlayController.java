@@ -1,7 +1,9 @@
 package overlayController;
 
 import java.io.IOException;
+
 import internationalization.LanguageResource;
+
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -11,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
@@ -55,11 +59,11 @@ public class OverlayController implements Initializable
     
 	private Dice[] dice = new Dice[]{new Dice(),new Dice()};
 	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		System.out.println("inside ini");
-		loadBoard();		
+
 		loadExternText("da", "DK");
 	}
 
@@ -68,12 +72,13 @@ public class OverlayController implements Initializable
 	 */
 	private void loadExternText(String language, String country)
 	{
+		loadBoard();
 		LanguageResource.setLocale(language, country);
 		setBtnOverlayHint(LanguageResource.getText("btnOverlayHintText"));
 		setBtnOverlayMenu(LanguageResource.getText("btnOverlayMenuText"));
 		setBtnOverlayRollDice(LanguageResource.getText("btnOverlayRollDiceText"));
-	}
-
+	}		
+	
 	public void rollDice(ActionEvent event)
 	{
 		System.out.println("dice rolled");
@@ -161,4 +166,5 @@ public class OverlayController implements Initializable
 			e.printStackTrace();
 		}
 	}
+
 }
