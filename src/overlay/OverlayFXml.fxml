@@ -8,38 +8,41 @@
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="overlayController.OverlayController">
   <!-- TODO Add Nodes -->
   <children>
-    <SplitPane fx:id="overlayContainer" dividerPositions="" focusTraversable="true" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
-      <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <VBox id="VBox" alignment="CENTER" prefHeight="768.0" prefWidth="1024.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <AnchorPane fx:id="boardContainer" minHeight="-1.0" minWidth="600.0" prefHeight="450.0" prefWidth="800.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="1024.0">
           <children>
-            <SplitPane dividerPositions="" focusTraversable="true" prefHeight="400.0" prefWidth="615.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                  <children>
-                    <SplitPane dividerPositions="0.594488188976378" focusTraversable="true" orientation="VERTICAL" prefHeight="398.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                      <items>
-                        <AnchorPane fx:id="boardContainer" minHeight="450.0" minWidth="600.0" prefHeight="0.0" prefWidth="0.0" />
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="197.0" prefWidth="522.0">
-                          <children>
-                            <Label id="difficulty" fx:id="lblOverlayDifficulty" layoutX="181.0" layoutY="27.0" text="level" />
-                            <Label id="score" fx:id="lblOverlayScore" layoutX="281.0" layoutY="27.0" style="&#10;" text="score" />
-                            <Label id="userName" fx:id="lblOverlayUserName" layoutX="42.0" layoutY="27.0" text="playerName" />
-                            <Button id="btnHint" fx:id="btnOverlayHint" layoutX="197.0" layoutY="82.0" mnemonicParsing="false" onAction="#triggerHint" text="Hint" />
-                            <Button id="btnRollDice" fx:id="btnOverlayRollDice" layoutX="583.0" layoutY="82.0" mnemonicParsing="false" onAction="#rollDice" text="Roll Dice" />
-                            <Label id="lblDiceOne" fx:id="lblOverlayDiceOne" layoutX="556.0" layoutY="14.0" prefHeight="50.0" prefWidth="50.0" style="&#10;" text="" />
-                            <Label id="lblDiceTwo" fx:id="lblOverlayDiceTwo" layoutX="626.0" layoutY="14.0" prefHeight="50.0" prefWidth="50.0" style="" text="" />
-                            <Button id="btnMenu" fx:id="btnOverlayMenu" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" text="Menu" />
-                          </children>
-                        </AnchorPane>
-                      </items>
-                    </SplitPane>
-                  </children>
-                </AnchorPane>
-              </items>
-            </SplitPane>
+            <HBox id="HBox" alignment="CENTER" layoutX="574.0" layoutY="243.0" spacing="5.0">
+              <children>
+                <Label id="lblLevel" fx:id="lblOverlayLevelText" text="levelText" />
+                <Label id="difficulty" fx:id="lblOverlayDifficulty" text="level" />
+              </children>
+            </HBox>
+            <HBox id="HBox" alignment="CENTER" layoutX="366.0" layoutY="243.0" spacing="5.0">
+              <children>
+                <Label fx:id="lblOverlayScoreText" text="lblScoreText" />
+                <Label id="score" fx:id="lblOverlayScore" style="&#10;" text="score" />
+              </children>
+            </HBox>
+            <HBox id="HBox" alignment="CENTER" layoutX="82.0" layoutY="223.0" spacing="5.0">
+              <children>
+                <Label fx:id="lblOverlayPlayerNameText" text="LabelPlayerName" />
+                <Label id="userName" fx:id="lblOverlayUserName" text="playerName" />
+              </children>
+            </HBox>
+            <Button id="btnHint" fx:id="btnOverlayHint" layoutX="197.0" layoutY="82.0" mnemonicParsing="false" onAction="#triggerHint" text="Hint" />
+            <Button id="btnRollDice" fx:id="btnOverlayRollDice" layoutX="583.0" layoutY="82.0" mnemonicParsing="false" onAction="#rollDice" text="Roll Dice" />
+            <HBox id="HBox" alignment="CENTER" layoutX="556.0" layoutY="14.0" spacing="20.0">
+              <children>
+                <Label id="lblDiceOne" fx:id="lblOverlayDiceOne" prefHeight="50.0" prefWidth="50.0" style="&#10;" text="" />
+                <Label id="lblDiceTwo" fx:id="lblOverlayDiceTwo" prefHeight="50.0" prefWidth="50.0" style="" text="" />
+              </children>
+            </HBox>
+            <Button id="btnMenu" fx:id="btnOverlayMenu" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" text="Menu" />
           </children>
         </AnchorPane>
-      </items>
-    </SplitPane>
+      </children>
+    </VBox>
   </children>
 </AnchorPane>
