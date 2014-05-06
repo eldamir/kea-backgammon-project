@@ -56,6 +56,9 @@ public class OverlayController implements Initializable
     
     @FXML
     private AnchorPane boardContainer;
+
+    @FXML
+    private static AnchorPane gameMenuContainer;
     
 	private Dice[] dice = new Dice[]{new Dice(),new Dice()};
 	
@@ -72,6 +75,7 @@ public class OverlayController implements Initializable
 	 */
 	private void loadExternText(String language, String country)
 	{
+		loadGameMenu();
 		loadBoard();
 		LanguageResource.setLocale(language, country);
 		setBtnOverlayHint(LanguageResource.getText("btnOverlayHintText"));
@@ -107,10 +111,25 @@ public class OverlayController implements Initializable
 																	+ "small.png"));
 		lblOverlayDiceTwo.setGraphic(new ImageView(image2));
 	}
-
+	
+	public static void showMenu(){
+		if(gameMenuContainer.isVisible() == false 
+				&& gameMenuContainer.isDisable() == true)
+		{
+			gameMenuContainer.setVisible(true);
+			gameMenuContainer.setDisable(false);
+		}
+		else 
+		{
+			gameMenuContainer.setVisible(false);
+			gameMenuContainer.setDisable(true);
+		}
+	}
+	
 	public void openMenu(ActionEvent event)
 	{
 		System.out.println("menu triggered");
+		showMenu();
 
 	}
 
@@ -160,6 +179,18 @@ public class OverlayController implements Initializable
 		try 
 		{
 			boardContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/gameboard/view/MainStage.fxml")));
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	private void loadGameMenu()
+	{
+		try 
+		{
+			gameMenuContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/overlay/OverlayGameMenu.fxml")));
 		} 
 		catch (IOException e) 
 		{
