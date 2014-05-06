@@ -1,4 +1,4 @@
-package internationalization;
+package model.internationalization;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ public abstract class LanguageResource
 {
     private static Locale locale = new Locale("da", "DK");
     private static ResourceBundle bundle = ResourceBundle.getBundle(
-        "properties.LanguageBundle", LanguageResource.locale
+        "resources.internationalization.properties.LanguageBundle", LanguageResource.locale
     );
 
 
@@ -42,7 +42,7 @@ public abstract class LanguageResource
     {
         LanguageResource.locale = new Locale(language, country);
         LanguageResource.bundle = ResourceBundle.getBundle(
-            "properties.LanguageBundle", LanguageResource.locale
+            "resources.internationalization.properties.LanguageBundle", LanguageResource.locale
         );
     }
 

@@ -1,14 +1,13 @@
-package overlay;
+package controller;
 
 
-import overlayController.OverlayController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class Overlay extends Application
+public class MainApplication extends Application
 {
 	
 	@Override
@@ -16,11 +15,9 @@ public class Overlay extends Application
 	{
 		try 
 		{
-			//Parent root = FXMLLoader.load(getClass().getResource("/overlay/OverlayFXml.fxml"));
-			Parent overlay = FXMLLoader.load(getClass().getResource("/overlay/OverlayFXml.fxml"));
-			//Scene scene = new Scene(root);
+			Parent overlay = FXMLLoader.load(getClass().getResource("/view/overlay/OverlayFXml.fxml"));
 			Scene scene = new Scene(overlay);
-			scene.getStylesheets().add(getClass().getResource("/overlay/overlay.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/view/overlay/overlay.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} 
@@ -38,14 +35,3 @@ public class Overlay extends Application
 	}
 
 }
-
-
-
-
-
-
-
-	
-	
-
-

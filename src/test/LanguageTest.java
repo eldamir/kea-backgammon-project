@@ -1,8 +1,7 @@
 package test;
 
-import internationalization.LanguageResource;
-
 import static org.junit.Assert.assertEquals;
+import model.internationalization.LanguageResource;
 
 import org.junit.Test;
 
