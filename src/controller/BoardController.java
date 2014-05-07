@@ -1,4 +1,4 @@
-package gameboard.controller;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
@@ -6,7 +6,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 
-public class MainBoardController {
+public class BoardController 
+{
 
 	// End homes for pieces
 	@FXML
@@ -109,7 +110,8 @@ public class MainBoardController {
 
 
 	@FXML
-	void initialize() {
+	void initialize() 
+	{
 
 	}
 

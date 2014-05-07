@@ -1,11 +1,11 @@
-package overlayGameMenuController;
+package controller;
 
-import internationalization.LanguageResource;
+import model.internationalization.LanguageResource;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import overlayController.OverlayController;
+import controller.OverlayController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
