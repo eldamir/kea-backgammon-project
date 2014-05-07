@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="211.0" prefWidth="261.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.OverlayGameMenuController">
+  <children>
+    <AnchorPane layoutX="2.0" layoutY="-26.0" prefHeight="230.0" prefWidth="270.0">
+      <children>
+        <Button fx:id="btnGameMenuLoad" layoutX="86.0" layoutY="100.0" mnemonicParsing="false" onAction="#loadPressed" text="Load" />
+        <Button fx:id="btnGameMenuSave" layoutX="144.0" layoutY="100.0" mnemonicParsing="false" onAction="#savePressed" text="Save" />
+        <Button fx:id="btnGameMenuNewGame" layoutX="100.0" layoutY="54.0" mnemonicParsing="false" onAction="#newGamePressed" text="New game" />
+        <Button fx:id="btnGameMenuLogOut" layoutX="107.0" layoutY="132.0" mnemonicParsing="false" onAction="#logOutPressed" text="Log out" />
+        <Button fx:id="btnGameMenuResume" layoutX="108.0" layoutY="202.0" mnemonicParsing="false" onAction="#resumePressed" text="Resume" />
+        <Button fx:id="btnGameMenuQuit" layoutX="117.0" layoutY="164.0" mnemonicParsing="false" onAction="#quitPressed" text="Quit" />
+      </children>
+    </AnchorPane>
+  </children>
+</AnchorPane>

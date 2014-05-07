@@ -176,7 +176,7 @@ public class OverlayController implements Initializable
 	{
 		try 
 		{
-			boardContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/gameboard/view/MainStage.fxml")));
+			boardContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/view/gameboard/gameboard.fxml")));
 		} 
 		catch (IOException e) 
 		{
@@ -188,7 +188,7 @@ public class OverlayController implements Initializable
 	{
 		try 
 		{
-			gameMenuContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/overlay/OverlayGameMenu.fxml")));
+			gameMenuContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/view/overlay/OverlayGameMenu.fxml")));
 		} 
 		catch (IOException e) 
 		{
