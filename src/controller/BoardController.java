@@ -1,6 +1,12 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
 import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -24,10 +30,10 @@ public class BoardController
 	private HBox pieceChamberSE;
 
 	@FXML
-	private HBox pieceChamperNW;
+	private HBox pieceChamberNW;
 
 	@FXML
-	private HBox pieceChamperSW;
+	private HBox pieceChamberSW;
 
 
 
@@ -108,11 +114,48 @@ public class BoardController
 	@FXML
 	private VBox spikeSW9;
 
-
-	@FXML
-	void initialize() 
+	private List<Node> boardSpikes;
+	
+	/** Adds a piece to the gameboard
+	 * @param piece The piece node to add to board
+	 * @param spikeNumber The spike the piece is added to 
+	 */
+	public void addPieceToField(Node piece, int spikeNumber)
 	{
+		((VBox) boardSpikes.get(spikeNumber)).getChildren().add(piece);
+	}
 
+	public List<Node> getBoardSpikes()
+	{
+		return boardSpikes;
+	}
+
+	
+	/** Sets up the gameboard for a new game
+	 * 
+	 */
+	public void startBoard()
+	{
+		addPieceToField(new PieceController(true, this).getPieceView(), 0);
+		addPieceToField(new PieceController(true, this).getPieceView(), 0);
+
+		addPieceToField(new PieceController(false, this).getPieceView(), 5);
+		addPieceToField(new PieceController(false, this).getPieceView(), 5);
+		addPieceToField(new PieceController(false, this).getPieceView(), 5);
+		addPieceToField(new PieceController(false, this).getPieceView(), 5);
+		addPieceToField(new PieceController(false, this).getPieceView(), 5);
+	}
+	
+	@FXML
+	public void initialize()
+	{
+		boardSpikes = new ArrayList<Node>();
+		boardSpikes.addAll(pieceChamberSE.getChildren());
+		boardSpikes.addAll(pieceChamberSW.getChildren());
+		Collections.reverse(boardSpikes.subList(0, 6)); // Lower 2 chambers are in reversed order of what we need
+		Collections.reverse(boardSpikes.subList(6,12));
+		boardSpikes.addAll(pieceChamberNW.getChildren());
+		boardSpikes.addAll(pieceChamberNE.getChildren());
 	}
 
 

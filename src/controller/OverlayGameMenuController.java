@@ -25,6 +25,9 @@ public class OverlayGameMenuController implements Initializable{
 	@FXML
     private Button btnGameMenuResume;
 	
+	private BoardController boardController;
+	private OverlayController overlayController;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
@@ -49,6 +52,7 @@ public class OverlayGameMenuController implements Initializable{
 	public void newGamePressed(ActionEvent event)
 	{
 		System.out.println("New game triggered");
+		boardController.startBoard();
 	}
 	
 	public void loadPressed(ActionEvent event)
@@ -75,7 +79,7 @@ public class OverlayGameMenuController implements Initializable{
 	public void resumePressed(ActionEvent event)
 	{
 		System.out.println("Resume triggered");
-		OverlayController.showMenu();
+		overlayController.showMenu();
 	}
 	
 	public void setBtnLblGameMenuNewGame(String st){
@@ -100,5 +104,15 @@ public class OverlayGameMenuController implements Initializable{
 	
 	public void setBtnLblGameMenuReturn(String st){
 		btnGameMenuResume.setText(st);
+	}
+
+	public void setOverlayController(OverlayController overlayController)
+	{
+		this.overlayController = overlayController;
+	}
+
+	public void setBoardController(BoardController boardController)
+	{
+		this.boardController = boardController;
 	}
 }

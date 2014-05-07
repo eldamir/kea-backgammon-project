@@ -55,8 +55,12 @@ public class OverlayController implements Initializable
     @FXML
     private AnchorPane boardContainer;
 
+    
+    private BoardController boardController;
+    private OverlayGameMenuController gameMenuController;
+    
     @FXML
-    private static AnchorPane gameMenuContainer;
+    private AnchorPane gameMenuContainer;
     
 	private Dice[] dice = new Dice[]{new Dice(),new Dice()};
 	
@@ -64,8 +68,16 @@ public class OverlayController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-
 		loadExternText("da", "DK");
+		try
+		{
+			loadBoard();
+			loadGameMenu();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -73,8 +85,6 @@ public class OverlayController implements Initializable
 	 */
 	private void loadExternText(String language, String country)
 	{
-		loadGameMenu();
-		loadBoard();
 		LanguageResource.setLocale(language, country);
 		setBtnOverlayHint(LanguageResource.getText("btnOverlayHintText"));
 		setBtnOverlayMenu(LanguageResource.getText("btnOverlayMenuText"));
@@ -110,7 +120,7 @@ public class OverlayController implements Initializable
 		lblOverlayDiceTwo.setGraphic(new ImageView(image2));
 	}
 	
-	public static void showMenu(){
+	public void showMenu(){
 		if(gameMenuContainer.isVisible() == false 
 				&& gameMenuContainer.isDisable() == true)
 		{
@@ -178,28 +188,21 @@ public class OverlayController implements Initializable
 		return Arrays.copyOf(dice, 2);
 	}
 	
-	private void loadBoard()
+	private void loadBoard() throws IOException
 	{
-		try 
-		{
-			boardContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/view/gameboard/gameboard.fxml")));
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		FXMLLoader boardLoader = new FXMLLoader(getClass().getResource("/view/gameboard/gameboard.fxml"));
+		boardContainer.getChildren().add((Node) boardLoader.load());
+		boardController = (BoardController) boardLoader.getController();
 	}
 	
-	private void loadGameMenu()
+	private void loadGameMenu() throws IOException
 	{
-		try 
-		{
-			gameMenuContainer.getChildren().add((Node) FXMLLoader.load(getClass().getResource("/view/overlay/OverlayGameMenu.fxml")));
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/view/overlay/OverlayGameMenu.fxml"));
+		gameMenuContainer.getChildren().add((Node) menuLoader.load());
+		gameMenuController = menuLoader.getController();
+		gameMenuController.setOverlayController(this);
+		gameMenuController.setBoardController(boardController);
+		
 	}
 
 }

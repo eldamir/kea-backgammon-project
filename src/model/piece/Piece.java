@@ -2,13 +2,14 @@ package model.piece;
 
 public class Piece {
 
-	private boolean colour;
+	private boolean white;
 	private boolean home;
 
 	public Piece(boolean colour)
 	{
-		this.colour = colour;
+		this.white = colour;
 		home = false;
+		
 	}
 
 	public boolean isHome() {
