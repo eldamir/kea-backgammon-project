@@ -43,13 +43,13 @@ public class OverlayController implements Initializable
 	private Label lblOverlayDiceTwo;
 
 	@FXML
-	private Button btnOverlayRollDice;
+	private static Button btnOverlayRollDice;
 
 	@FXML
-	private Button btnOverlayMenu;
+	private static Button btnOverlayMenu;
 
 	@FXML
-	private Button btnOverlayHint;	
+	private static Button btnOverlayHint;	
 	
     @FXML
     private SplitPane overlayContainer;
@@ -118,11 +118,17 @@ public class OverlayController implements Initializable
 		{
 			gameMenuContainer.setVisible(true);
 			gameMenuContainer.setDisable(false);
+			btnOverlayMenu.setDisable(true);
+			btnOverlayHint.setDisable(true);
+			btnOverlayRollDice.setDisable(true);
 		}
 		else 
 		{
 			gameMenuContainer.setVisible(false);
 			gameMenuContainer.setDisable(true);
+			btnOverlayMenu.setDisable(false);
+			btnOverlayHint.setDisable(false);
+			btnOverlayRollDice.setDisable(false);
 		}
 	}
 	

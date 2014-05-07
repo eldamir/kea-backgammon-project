@@ -1,11 +1,17 @@
 package overlayGameMenuController;
 
+import internationalization.LanguageResource;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import overlayController.OverlayController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class OverlayGameMenuController {
+public class OverlayGameMenuController implements Initializable{
 	@FXML
     private Button btnGameMenuNewGame;
 	@FXML
@@ -17,7 +23,28 @@ public class OverlayGameMenuController {
 	@FXML
     private Button btnGameMenuQuit;
 	@FXML
-    private Button btnGameMenuReturn;
+    private Button btnGameMenuResume;
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1)
+	{
+
+		loadExternText("da", "DK");
+	}
+
+	/**
+	 * Simple Method to load the externalized Strings in the desired Language.
+	 */
+	private void loadExternText(String language, String country)
+	{
+		LanguageResource.setLocale(language, country);
+		setBtnLblGameMenuNewGame(LanguageResource.getText("btnGameMenuNewGame"));
+		setBtnLblGameMenuLoad(LanguageResource.getText("btnGameMenuLoad"));
+		setBtnLblGameMenuSave(LanguageResource.getText("btnGameMenuSave"));
+		setBtnLblGameMenuLogOut(LanguageResource.getText("btnGameMenuLogOut"));
+		setBtnLblGameMenuQuit(LanguageResource.getText("btnGameMenuQuit"));
+		setBtnLblGameMenuReturn(LanguageResource.getText("btnGameMenuResume"));
+	}
 	
 	public void newGamePressed(ActionEvent event)
 	{
@@ -49,5 +76,29 @@ public class OverlayGameMenuController {
 	{
 		System.out.println("Resume triggered");
 		OverlayController.showMenu();
+	}
+	
+	public void setBtnLblGameMenuNewGame(String st){
+		btnGameMenuNewGame.setText(st);
+	}
+	
+	public void setBtnLblGameMenuLoad(String st){
+		btnGameMenuLoad.setText(st);
+	}
+	
+	public void setBtnLblGameMenuSave(String st){
+		btnGameMenuSave.setText(st);
+	}
+	
+	public void setBtnLblGameMenuLogOut(String st){
+		btnGameMenuLogOut.setText(st);
+	}
+	
+	public void setBtnLblGameMenuQuit(String st){
+		btnGameMenuQuit.setText(st);
+	}
+	
+	public void setBtnLblGameMenuReturn(String st){
+		btnGameMenuResume.setText(st);
 	}
 }
