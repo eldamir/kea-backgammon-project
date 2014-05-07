@@ -2,10 +2,9 @@ package test;
 
 
 import static org.junit.Assert.fail;
+import model.dice.Dice;
 
 import org.junit.Test;
-
-import dice.Dice;
 
 
 public class DiceTest

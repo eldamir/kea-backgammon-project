@@ -1,8 +1,8 @@
-package overlayController;
+package controller;
 
 import java.io.IOException;
 
-import internationalization.LanguageResource;
+import model.internationalization.LanguageResource;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -13,15 +13,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import dice.Dice;
+import model.dice.Dice;
 
 
 public class OverlayController implements Initializable
@@ -99,14 +97,14 @@ public class OverlayController implements Initializable
 
 		Image image =
 						new Image(
-									getClass().getResourceAsStream(	"../images/"
+									getClass().getResourceAsStream(	"../resources/dice/"
 																	+ diceOne
 																	+ "small.png"));
 		lblOverlayDiceOne.setGraphic(new ImageView(image));
 
 		Image image2 =
 						new Image(
-									getClass().getResourceAsStream(	"../images/"
+									getClass().getResourceAsStream(	"../resources/dice/"
 																	+ diceTwo
 																	+ "small.png"));
 		lblOverlayDiceTwo.setGraphic(new ImageView(image2));
