@@ -1,15 +1,17 @@
 package model.piece;
 
+import controller.BoardController;
+
 public class Piece {
 
 	private boolean white;
 	private boolean home;
+	private BoardController boardController;
+	
 
 	public Piece(boolean colour)
 	{
-		this.white = colour;
 		home = false;
-		
 	}
 
 	public boolean isHome() {
