@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
+import model.piece.Piece;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -117,38 +119,89 @@ public class BoardController
 	private List<Node> boardSpikes;
 	
 	/** Adds a piece to the gameboard
-	 * @param piece The piece node to add to board
+	 * @param p1 The piece node to add to board
 	 * @param spikeNumber The spike the piece is added to 
 	 */
-	public void addPieceToField(Node piece, int spikeNumber)
+	public void addPieceToField(Node p1, int spikeNumber)
 	{
-		((VBox) boardSpikes.get(spikeNumber)).getChildren().add(piece);
+		((VBox) boardSpikes.get(spikeNumber)).getChildren().add(p1);
 	}
 
 	public List<Node> getBoardSpikes()
 	{
 		return boardSpikes;
 	}
+	
+	
+	List<PieceController> pieceArrayBlack = new ArrayList<PieceController>();
+	List<PieceController> pieceArrayWhite = new ArrayList<PieceController>();
+	
+	public void addPieces(){
+		
+		for(int i = 1; i <= 15; i++) {
+		    pieceArrayWhite.add(new PieceController(true, this));
+		}
+		
+		for(int i = 1; i <= 15; i++) {
+		    pieceArrayBlack.add(new PieceController(false, this));
+		}
 
+	}
+	
 	
 	/** Sets up the gameboard for a new game
 	 * 
 	 */
 	public void startBoard()
 	{
-		addPieceToField(new PieceController(true, this).getPieceView(), 0);
-		addPieceToField(new PieceController(true, this).getPieceView(), 0);
-
-		addPieceToField(new PieceController(false, this).getPieceView(), 5);
-		addPieceToField(new PieceController(false, this).getPieceView(), 5);
-		addPieceToField(new PieceController(false, this).getPieceView(), 5);
-		addPieceToField(new PieceController(false, this).getPieceView(), 5);
-		addPieceToField(new PieceController(false, this).getPieceView(), 5);
+		//ImageView brick1 = (new PieceController(true, this).getPieceView());
+		if(!(pieceArrayBlack.size() >=15) && !(pieceArrayWhite.size() >=15)){
+			addPieces();
+		}
+		
+		addPieceToField(pieceArrayWhite.get(0).getPieceView(), 11);
+		addPieceToField(pieceArrayWhite.get(1).getPieceView(), 11);
+		addPieceToField(pieceArrayWhite.get(2).getPieceView(), 11);
+		addPieceToField(pieceArrayWhite.get(3).getPieceView(), 11);
+		addPieceToField(pieceArrayWhite.get(4).getPieceView(), 11);
+		
+		addPieceToField(pieceArrayWhite.get(5).getPieceView(), 0);
+		addPieceToField(pieceArrayWhite.get(6).getPieceView(), 0);
+		
+		addPieceToField(pieceArrayWhite.get(7).getPieceView(), 18);
+		addPieceToField(pieceArrayWhite.get(8).getPieceView(), 18);
+		addPieceToField(pieceArrayWhite.get(9).getPieceView(), 18);
+		addPieceToField(pieceArrayWhite.get(10).getPieceView(), 18);
+		addPieceToField(pieceArrayWhite.get(11).getPieceView(), 18);
+		
+		addPieceToField(pieceArrayWhite.get(12).getPieceView(), 16);
+		addPieceToField(pieceArrayWhite.get(13).getPieceView(), 16);
+		addPieceToField(pieceArrayWhite.get(14).getPieceView(), 16);
+		
+		addPieceToField(pieceArrayBlack.get(0).getPieceView(), 12);
+		addPieceToField(pieceArrayBlack.get(1).getPieceView(), 12);
+		addPieceToField(pieceArrayBlack.get(2).getPieceView(), 12);
+		addPieceToField(pieceArrayBlack.get(3).getPieceView(), 12);
+		addPieceToField(pieceArrayBlack.get(4).getPieceView(), 12);
+		
+		addPieceToField(pieceArrayBlack.get(5).getPieceView(), 23);
+		addPieceToField(pieceArrayBlack.get(6).getPieceView(), 23);
+		
+		addPieceToField(pieceArrayBlack.get(7).getPieceView(), 5);
+		addPieceToField(pieceArrayBlack.get(8).getPieceView(), 5);
+		addPieceToField(pieceArrayBlack.get(9).getPieceView(), 5);
+		addPieceToField(pieceArrayBlack.get(10).getPieceView(), 5);
+		addPieceToField(pieceArrayBlack.get(11).getPieceView(), 5);
+		
+		addPieceToField(pieceArrayBlack.get(12).getPieceView(), 7);
+		addPieceToField(pieceArrayBlack.get(13).getPieceView(), 7);
+		addPieceToField(pieceArrayBlack.get(14).getPieceView(), 7);
 	}
+	
 	
 	@FXML
 	public void initialize()
-	{
+	{	
 		boardSpikes = new ArrayList<Node>();
 		boardSpikes.addAll(pieceChamberSE.getChildren());
 		boardSpikes.addAll(pieceChamberSW.getChildren());
