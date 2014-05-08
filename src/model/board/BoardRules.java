@@ -12,15 +12,18 @@ import model.piece.Piece;
 public class BoardRules 
 {
 
-	/** Handles the moving of a piece
-	 * @param piece The game piece to move
-	 * @param boardPlacement Place on board which to move the piece
+	
+	/** Checks if a move of a game piece is legal
+	 * @param piece The game piece in the move
+	 * @param boardState The state of the board to check on
+	 * @param diceRoll Dice roll used for this move
 	 * @return Whether the move is legal
 	 */
-	public boolean legalMove(Piece piece, BoardState boardState)
+	public boolean isLegalMove(Piece piece, BoardState boardState, int diceRoll)
 	{
-		ArrayList<Piece> spikeState = boardState.getSpike(piece.getBoardPlacement());
-		if (piece.getBoardPlacement() >= 0 && piece.getBoardPlacement() <27)
+		int boardPosToCheck = piece.getBoardPlacement() + diceRoll;
+		ArrayList<Piece> spikeState = boardState.getSpike(boardPosToCheck); // So will boardState be an object or not?
+		if (boardPosToCheck >= 0 && boardPosToCheck < 27)	// 27 = 24 spikes, 1 prison, 1 blackHome and 1 whiteHome
 		{
 			if (spikeState.isEmpty() 
 				|| spikeState.get(0).isWhite() == piece.isWhite()
@@ -32,17 +35,25 @@ public class BoardRules
 		return false;
 	}
 	
+	
+	/** Returns a list of legal positions for the current piece
+	 * @param piece The piece to check moves for
+	 * @param rollOfDices A list of dice rolls
+	 * @param boardState The state of the board to check on
+	 * @return A list of legal positions for the piece
+	 */
 	public List<Integer> legalMoves(Piece piece, List<Integer> rollOfDices, BoardState boardState)
 	{
 		ArrayList<Integer> legalPositions = new ArrayList<Integer>();
 		for (Integer diceRoll: rollOfDices)
 		{
-			if (legalMove(piece, boardState))
+			if (isLegalMove(piece, boardState, diceRoll))
 			{
 				legalPositions.add(piece.getBoardPlacement() + diceRoll);
 			}
 		}
 		return legalPositions;
 	}
+	
 	
 }
