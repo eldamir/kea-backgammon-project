@@ -154,11 +154,8 @@ public class BoardController
 	 */
 	public void startBoard()
 	{
-		
-		if(pieceArrayBlack.size() == 15){
-			for (int i = 0; i < 24; i++) {
-				((VBox) boardSpikes.get(i)).getChildren().clear();
-			}
+		for (int i = 0; i < 24; i++) {
+			((VBox) boardSpikes.get(i)).getChildren().clear();
 		}
 		
 		//ImageView brick1 = (new PieceController(true, this).getPieceView());

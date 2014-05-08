@@ -11,6 +11,8 @@ public class PieceController
 	private static final Image blackPiece = new Image("/resources/piece/backgammonredpiece.png");
 	
 	private ImageView pieceView;
+	
+	private Piece piece;
 
 
 	/** Constructor of a new piece
