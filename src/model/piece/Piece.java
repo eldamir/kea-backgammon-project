@@ -1,7 +1,5 @@
 package model.piece;
 
-import java.util.List;
-
 import controller.BoardController;
 
 
@@ -11,11 +9,11 @@ public class Piece {
 	private boolean home;
 	private int boardPlacement;
 	private BoardController boardController;
-	
 
 	public Piece(boolean colour, int boardPlacement)
 	{
 		this.boardPlacement = boardPlacement;
+		this.white = colour;
 		home = false;
 	}
 

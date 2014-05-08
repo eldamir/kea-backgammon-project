@@ -11,6 +11,8 @@ public class PieceController
 	private static final Image blackPiece = new Image("/resources/piece/backgammonredpiece.png");
 	
 	private ImageView pieceView;
+	
+	private Piece piece;
 
 
 	/** Constructor of a new piece
@@ -19,7 +21,7 @@ public class PieceController
 	 */
 	public PieceController(boolean white, BoardController boardController)
 	{
-		new Piece(white); // Where to place these logical pieces and how to connect the ImageView with it, without breaking the model/view/control layers?
+		new Piece(white, 1); // Where to place these logical pieces and how to connect the ImageView with it, without breaking the model/view/control layers?
 		if(white)
 		{
 			pieceView = new ImageView(whitePiece);

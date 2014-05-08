@@ -3,7 +3,6 @@ package model.board;
 import java.util.ArrayList;
 import java.util.List;
 
-import Board.BoardState;
 import model.piece.Piece;
 
 /** Handles the rules of the board
@@ -30,15 +29,10 @@ public class BoardRules
 				return true;
 			}
 		}
-		else 
-		{
-			return false;
-		}
-		
-		
+		return false;
 	}
 	
-	public List<Integer> legalMoves(Piece piece, int firstDiceRoll, int secondDiceRoll, List<Integer> rollOfDices, BoardState boardState)
+	public List<Integer> legalMoves(Piece piece, List<Integer> rollOfDices, BoardState boardState)
 	{
 		ArrayList<Integer> legalPositions = new ArrayList<Integer>();
 		for (Integer diceRoll: rollOfDices)

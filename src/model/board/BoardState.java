@@ -1,4 +1,4 @@
-package Board;
+package model.board;
 import java.util.ArrayList;
 
 import model.piece.Piece;
@@ -22,7 +22,7 @@ public class BoardState
 	 * the other for the computer.
 	 */
 	private static ArrayList<ArrayList<Piece>> boardState = new ArrayList<ArrayList<Piece>>(29);
-	
+	private static boolean turn = true;
 	
 	/**
 	 * 
@@ -42,9 +42,21 @@ public class BoardState
 		boardState = boardstate;
 	}
 	
-			
+	/**
+	 * 
+	 * @param Turn
+	 * @return if true then user is playing, if false computer is playing
+	 */
+	public static boolean shiftTurn(boolean Turn)
+	{
+		turn = Turn;
+		return turn;
+	}
 	
-	
-	
+	public static ArrayList<Piece> getSpike(int n)
+	{
+		ArrayList<Piece> spike = boardState.get(n);
+		return spike;
+	}
 
 }

@@ -3,7 +3,6 @@ package model.player;
 import java.util.ArrayList;
 import java.util.List;
 
-import Board.BoardState;
 import controller.OverlayController;
 import model.board.BoardRules;
 import model.dice.Dice;
@@ -63,7 +62,7 @@ public class Player
 	
 	public void movePiece(Piece piece)
 	{
-
-		boardRules.legalMoves(piece, firstDiceRoll, secondDiceRoll, rollOfDices, BoardState.getBoardState());
+//		Once BoardState is done, next line can be activated
+//		boardRules.legalMoves(piece, rollOfDices, BoardState.getBoardState());
 	}
 }
