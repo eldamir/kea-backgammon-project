@@ -43,8 +43,9 @@ public class BoardState
 	}
 	
 			
-	
-	
+	public static boolean shiftTurn(boolean turn){
+		return turn;
+	}
 	
 
 }
