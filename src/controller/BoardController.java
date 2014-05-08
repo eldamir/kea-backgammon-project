@@ -136,6 +136,9 @@ public class BoardController
 	List<PieceController> pieceArrayBlack = new ArrayList<PieceController>();
 	List<PieceController> pieceArrayWhite = new ArrayList<PieceController>();
 	
+	/**
+	 * Creating and adding pieces to lists
+	 */
 	public void addPieces(){
 		
 		for(int i = 1; i <= 15; i++) {
@@ -149,20 +152,23 @@ public class BoardController
 	}
 	
 	
-	/** Sets up the gameboard for a new game
-	 * 
+	/** Sets up the game-board for a new game
+	 * 	Clears board, gets method that creates pieces.
+	 * 	Then sets pieces to their position on game-board.
 	 */
 	public void startBoard()
 	{
+		//loops through each spike and clears them.
 		for (int i = 0; i < 24; i++) {
 			((VBox) boardSpikes.get(i)).getChildren().clear();
 		}
 		
-		//ImageView brick1 = (new PieceController(true, this).getPieceView());
+		//Does not create pieces if they already exist
 		if(!(pieceArrayBlack.size() >=15) && !(pieceArrayWhite.size() >=15)){
 			addPieces();
 		}
 		
+		//Adds pieces to its designated position
 		addPieceToField(pieceArrayWhite.get(0).getPieceView(), 11);
 		addPieceToField(pieceArrayWhite.get(1).getPieceView(), 11);
 		addPieceToField(pieceArrayWhite.get(2).getPieceView(), 11);
