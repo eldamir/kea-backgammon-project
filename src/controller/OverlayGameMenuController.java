@@ -53,21 +53,25 @@ public class OverlayGameMenuController implements Initializable{
 	{
 		System.out.println("New game triggered");
 		boardController.startBoard();
+		overlayController.showMenu();
 	}
 	
 	public void loadPressed(ActionEvent event)
 	{
 		System.out.println("Load triggered");
+		overlayController.showMenu();
 	}
 	
 	public void savePressed(ActionEvent event)
 	{
 		System.out.println("Save triggered");
+		overlayController.showMenu();
 	}
 	
 	public void logOutPressed(ActionEvent event)
 	{
 		System.out.println("Log out triggered");
+		overlayController.showMenu();
 	}
 	
 	public void quitPressed(ActionEvent event)

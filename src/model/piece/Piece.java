@@ -20,4 +20,8 @@ public class Piece {
 		this.home = home;
 	}
 
+	public boolean isWhite() {
+		return white;
+	}
+
 }
