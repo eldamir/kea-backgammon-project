@@ -154,6 +154,13 @@ public class BoardController
 	 */
 	public void startBoard()
 	{
+		
+		if(pieceArrayBlack.size() == 15){
+			for (int i = 0; i < 24; i++) {
+				((VBox) boardSpikes.get(i)).getChildren().clear();
+			}
+		}
+		
 		//ImageView brick1 = (new PieceController(true, this).getPieceView());
 		if(!(pieceArrayBlack.size() >=15) && !(pieceArrayWhite.size() >=15)){
 			addPieces();
