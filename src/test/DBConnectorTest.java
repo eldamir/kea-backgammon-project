@@ -33,14 +33,15 @@ public class DBConnectorTest
         sql = "SELECT * FROM COMPANY";
         CachedRowSetImpl result = DBConnector.query(sql);
 
-        Integer key     = null;
-        Integer age     = null;
-        String  name    = null;
-        String  address = null;
-        Double  salary  = null;
+        Integer key = null;
+        Integer age = null;
+        String name = null;
+        String address = null;
+        Double salary = null;
         try
         {
-            while (result.next()) {
+            while (result.next())
+            {
                 key = result.getInt(1);
                 age = result.getInt(2);
                 name = result.getString(3);
@@ -52,10 +53,10 @@ public class DBConnectorTest
             e.printStackTrace();
         }
 
-        assertEquals("Compare key"    , (long)1, (long)key);
-        assertEquals("Compare age"    , (long)25, (long)age);
-        assertEquals("Compare name"   , "Ruben", name);
+        assertEquals("Compare key", (long) 1, (long) key);
+        assertEquals("Compare age", (long) 25, (long) age);
+        assertEquals("Compare name", "Ruben", name);
         assertEquals("Compare address", null, address);
-        assertEquals("Compare salary" , 0.0, (double)salary, 0.0);
+        assertEquals("Compare salary", 0.0, (double) salary, 0.0);
     }
 }
