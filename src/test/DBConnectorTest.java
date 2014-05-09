@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import com.sun.rowset.CachedRowSetImpl;
 import controller.dbController.DBConnector;
-import model.internationalization.LanguageResource;
-
 import org.junit.Test;
 
 import java.sql.SQLException;
@@ -16,7 +14,7 @@ public class DBConnectorTest
     @Test
     public void testConnection()
     {
-        String sql = "DROP TABLE COMPANY";
+        String sql = "DROP TABLE IF EXISTS COMPANY";
         DBConnector.query(sql, true);
 
         sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
