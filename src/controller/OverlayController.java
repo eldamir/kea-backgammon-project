@@ -33,6 +33,15 @@ public class OverlayController implements Initializable
 
 	@FXML
 	private Label lblOverlayScore;
+	
+	@FXML
+	private Label lblOverlayPlayerNameText;
+
+	@FXML
+	private Label lblOverlayDifficultyText;
+
+	@FXML
+	private Label lblOverlayScoreText;
 
 	@FXML
 	private Label lblOverlayDiceOne;
@@ -89,33 +98,37 @@ public class OverlayController implements Initializable
 		setBtnOverlayHint(LanguageResource.getText("btnOverlayHintText"));
 		setBtnOverlayMenu(LanguageResource.getText("btnOverlayMenuText"));
 		setBtnOverlayRollDice(LanguageResource.getText("btnOverlayRollDiceText"));
+		setLblOverlayPlayerNameText(LanguageResource.getText("lblOverlayUserName"));
+		setLblOverlayDifficultyText(LanguageResource.getText("lblOverlayDifficulty"));
+		setLblOverlayScoreText(LanguageResource.getText("lblOverlayScore"));
+		
 	}		
 	
 	public void rollDice(ActionEvent event)
-	{
+	{	dice[0].roll();
+		dice[1].roll();
+		setDice(dice[0],dice[1]);
 		System.out.println("dice rolled");
-		setDice(dice[0].roll(), dice[1].roll());
+		
 
 		// Disable button until players next turn
 		// btnOverlayRollDice.setDisable(true);
 	}
 
-	public void setDice(int dice1, int dice2)
+	public void setDice(Dice dice1, Dice dice2)
 	{
-		String diceOne = Integer.toString(dice1);
-		String diceTwo = Integer.toString(dice2);
 
 		Image image =
 						new Image(
 									getClass().getResourceAsStream(	"../resources/dice/"
-																	+ diceOne
+																	+ Integer.toString(dice1.getValue())
 																	+ "small.png"));
 		lblOverlayDiceOne.setGraphic(new ImageView(image));
 
 		Image image2 =
 						new Image(
 									getClass().getResourceAsStream(	"../resources/dice/"
-																	+ diceTwo
+																	+ Integer.toString(dice2.getValue())
 																	+ "small.png"));
 		lblOverlayDiceTwo.setGraphic(new ImageView(image2));
 	}
@@ -166,6 +179,22 @@ public class OverlayController implements Initializable
 	{
 		lblOverlayScore.setText(lblOverlayScoreText);
 	}
+	
+	public void setLblOverlayPlayerNameText(String lblOverlayPlayerNameTextText)
+	{
+		lblOverlayPlayerNameText.setText(lblOverlayPlayerNameTextText);
+	}
+
+	public void setLblOverlayDifficultyText(String lblOverlayDifficultyTextText)
+	{
+		lblOverlayDifficultyText.setText(lblOverlayDifficultyTextText);
+	}
+
+	public void setLblOverlayScoreText(String lblOverlayScoreTextText)
+	{
+		lblOverlayScoreText.setText(lblOverlayScoreTextText);
+	}
+
 
 	public void setBtnOverlayRollDice(String btnOverlayRollDiceText)
 	{

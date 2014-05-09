@@ -41,9 +41,9 @@ public class Player
 	 */
 	public void startTurn()
 	{
-		firstDiceRoll = dice1.roll();
-		secondDiceRoll = dice2.roll();
-		overlayController.setDice(firstDiceRoll, secondDiceRoll);
+		dice1.roll();
+		dice2.roll();
+		overlayController.setDice(dice1, dice2);
 		rollOfDices = new ArrayList<Integer>();
 
 		if (firstDiceRoll != secondDiceRoll)
