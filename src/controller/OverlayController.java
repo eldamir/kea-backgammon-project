@@ -92,30 +92,30 @@ public class OverlayController implements Initializable
 	}		
 	
 	public void rollDice(ActionEvent event)
-	{
+	{	dice[0].roll();
+		dice[1].roll();
+		setDice(dice[0],dice[1]);
 		System.out.println("dice rolled");
-		setDice(dice[0].roll(), dice[1].roll());
+		
 
 		// Disable button until players next turn
 		// btnOverlayRollDice.setDisable(true);
 	}
 
-	public void setDice(int dice1, int dice2)
+	public void setDice(Dice dice1, Dice dice2)
 	{
-		String diceOne = Integer.toString(dice1);
-		String diceTwo = Integer.toString(dice2);
 
 		Image image =
 						new Image(
 									getClass().getResourceAsStream(	"../resources/dice/"
-																	+ diceOne
+																	+ Integer.toString(dice1.getValue())
 																	+ "small.png"));
 		lblOverlayDiceOne.setGraphic(new ImageView(image));
 
 		Image image2 =
 						new Image(
 									getClass().getResourceAsStream(	"../resources/dice/"
-																	+ diceTwo
+																	+ Integer.toString(dice2.getValue())
 																	+ "small.png"));
 		lblOverlayDiceTwo.setGraphic(new ImageView(image2));
 	}
