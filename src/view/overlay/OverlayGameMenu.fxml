@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="211.0" prefWidth="261.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.OverlayGameMenuController">
+<AnchorPane prefHeight="211.0" prefWidth="261.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OverlayGameMenuController">
   <children>
     <AnchorPane layoutX="2.0" layoutY="-26.0" prefHeight="230.0" prefWidth="270.0">
       <children>
