@@ -19,6 +19,7 @@ public class MainApplication extends Application
 			Scene scene = new Scene(overlay);
 			scene.getStylesheets().add(getClass().getResource("/view/overlay/overlay.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} 
 		catch(Exception e) 
