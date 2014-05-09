@@ -33,6 +33,15 @@ public class OverlayController implements Initializable
 
 	@FXML
 	private Label lblOverlayScore;
+	
+	@FXML
+	private Label lblOverlayPlayerNameText;
+
+	@FXML
+	private Label lblOverlayDifficultyText;
+
+	@FXML
+	private Label lblOverlayScoreText;
 
 	@FXML
 	private Label lblOverlayDiceOne;
@@ -89,6 +98,10 @@ public class OverlayController implements Initializable
 		setBtnOverlayHint(LanguageResource.getText("btnOverlayHintText"));
 		setBtnOverlayMenu(LanguageResource.getText("btnOverlayMenuText"));
 		setBtnOverlayRollDice(LanguageResource.getText("btnOverlayRollDiceText"));
+		setLblOverlayPlayerNameText(LanguageResource.getText("lblOverlayUserName"));
+		setLblOverlayDifficultyText(LanguageResource.getText("lblOverlayDifficulty"));
+		setLblOverlayScoreText(LanguageResource.getText("lblOverlayScore"));
+		
 	}		
 	
 	public void rollDice(ActionEvent event)
@@ -166,6 +179,22 @@ public class OverlayController implements Initializable
 	{
 		lblOverlayScore.setText(lblOverlayScoreText);
 	}
+	
+	public void setLblOverlayPlayerNameText(String lblOverlayPlayerNameTextText)
+	{
+		lblOverlayPlayerNameText.setText(lblOverlayPlayerNameTextText);
+	}
+
+	public void setLblOverlayDifficultyText(String lblOverlayDifficultyTextText)
+	{
+		lblOverlayDifficultyText.setText(lblOverlayDifficultyTextText);
+	}
+
+	public void setLblOverlayScoreText(String lblOverlayScoreTextText)
+	{
+		lblOverlayScoreText.setText(lblOverlayScoreTextText);
+	}
+
 
 	public void setBtnOverlayRollDice(String btnOverlayRollDiceText)
 	{

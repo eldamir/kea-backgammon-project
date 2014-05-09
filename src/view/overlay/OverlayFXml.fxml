@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OverlayController">
   <!-- TODO Add Nodes -->
   <children>
@@ -15,7 +14,7 @@
           <children>
             <HBox id="HBox" alignment="CENTER" layoutX="574.0" layoutY="243.0" spacing="5.0">
               <children>
-                <Label id="lblLevel" fx:id="lblOverlayLevelText" text="levelText" />
+                <Label id="lblLevel" fx:id="lblOverlayDifficultyText" text="levelText" />
                 <Label id="difficulty" fx:id="lblOverlayDifficulty" text="level" />
               </children>
             </HBox>
