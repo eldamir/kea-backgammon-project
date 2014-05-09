@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="683.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OverlayController">
+<AnchorPane prefHeight="683.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.OverlayController">
   <!-- TODO Add Nodes -->
   <children>
     <VBox id="VBox" alignment="CENTER" prefHeight="768.0" prefWidth="1024.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -30,15 +30,15 @@
                 <Label id="userName" fx:id="lblOverlayUserName" text="playerName" />
               </children>
             </HBox>
-            <Button id="btnHint" fx:id="btnOverlayHint" layoutX="197.0" layoutY="82.0" mnemonicParsing="false" onAction="#triggerHint" text="Hint" />
-            <Button id="btnRollDice" fx:id="btnOverlayRollDice" layoutX="583.0" layoutY="82.0" mnemonicParsing="false" onAction="#rollDice" text="Roll Dice" />
+            <Button id="btnHint" fx:id="btnOverlayHint" layoutX="197.0" layoutY="82.0" mnemonicParsing="false" onAction="#triggerHint" styleClass="fancyButton" text="Hint" />
+            <Button id="btnRollDice" fx:id="btnOverlayRollDice" layoutX="583.0" layoutY="82.0" mnemonicParsing="false" onAction="#rollDice" styleClass="fancyButton" text="Roll Dice" />
             <HBox id="HBox" alignment="CENTER" layoutX="556.0" layoutY="14.0" spacing="20.0">
               <children>
                 <Label id="lblDiceOne" fx:id="lblOverlayDiceOne" prefHeight="50.0" prefWidth="50.0" style="&#10;" text="" />
                 <Label id="lblDiceTwo" fx:id="lblOverlayDiceTwo" prefHeight="50.0" prefWidth="50.0" style="" text="" />
               </children>
             </HBox>
-            <Button id="btnMenu" fx:id="btnOverlayMenu" cancelButton="true" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" text="Menu" />
+            <Button id="btnMenu" fx:id="btnOverlayMenu" cancelButton="true" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" styleClass="fancyButton" text="Menu" />
           </children>
         </AnchorPane>
       </children>
