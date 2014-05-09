@@ -11,7 +11,7 @@ import model.piece.Piece;
  */
 public class BoardRules 
 {
-
+	
 	
 	/** Checks if a move of a game piece is legal
 	 * @param piece The game piece in the move
@@ -23,7 +23,7 @@ public class BoardRules
 	{
 		int boardPosToCheck = piece.getBoardPlacement() + diceRoll;
 		ArrayList<Piece> spikeState = boardState.getSpike(boardPosToCheck); // So will boardState be an object or not?
-		if (boardPosToCheck >= 0 && boardPosToCheck < 27)	// 27 = 24 spikes, 1 prison, 1 blackHome and 1 whiteHome
+		if (boardPosToCheck >= 0 && boardPosToCheck < 26)	// 26 = 24 spikes, 1 blackHome and 1 whiteHome
 		{
 			if (spikeState.isEmpty() 
 				|| spikeState.get(0).isWhite() == piece.isWhite()
