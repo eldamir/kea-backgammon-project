@@ -2,31 +2,48 @@ package controller.dbController;
 
 import com.sun.rowset.CachedRowSetImpl;
 
-import javax.sql.rowset.CachedRowSet;
 import java.sql.*;
 
 /**
- * Created by ruben on 5/8/14.
+ * Class that wraps the functionality of connecting to the database, 
+ * executing queries and returning the data set
+ * 
+ * Created by ruben og Ulrik on 5/8/14.
  */
 public abstract class DBConnector
 {
     public static final String DATABASE_NAME = "test.db";
 
+    /**
+     * Executes the sql query and returns the result set 
+     * 
+     * @param query Sql string to be executed
+     * @param update true if the query is an update query otherwise false
+     * @return The result set from an select query otherwise null
+     */
     public static CachedRowSetImpl query(String query, boolean update)
     {
         return queryHelper(query, update);
     }
 
+    /**
+     * Executes a select query and returns the result set 
+     * 
+     * @param query Sql string to be executed
+     * @return The result set from an select query otherwise null
+     */
     public static CachedRowSetImpl query(String query)
     {
         return queryHelper(query, false);
-    }
+    }    
 
-    private static void parseResultSet(ResultSet results)
-    {
-
-    }
-
+    /**
+     * Helper method to query methods
+     * 
+     * @param query
+     * @param update
+     * @return
+     */
     private static CachedRowSetImpl queryHelper(String query, boolean update)
     {
         Connection c = null;
@@ -60,40 +77,5 @@ public abstract class DBConnector
         }
         return null;
     }
-
-    public static void main(String[] args)
-    {
-        String sql = "DROP TABLE COMPANY";
-        DBConnector.query(sql, true);
-
-        sql = "CREATE TABLE IF NOT EXISTS COMPANY " +
-                "(ID             INTEGER PRIMARY KEY     AUTOINCREMENT NOT NULL," +
-                " AGE            INT                     NOT NULL, " +
-                " NAME           TEXT                    NOT NULL, " +
-                " ADDRESS        CHAR(50), " +
-                " SALARY         REAL)";
-        DBConnector.query(sql, true);
-
-        sql = "INSERT INTO COMPANY(NAME, AGE) VALUES ('Ruben', 25)";
-        DBConnector.query(sql, true);
-
-        sql = "SELECT * FROM COMPANY";
-        CachedRowSetImpl result = DBConnector.query(sql);
-
-        try
-        {
-            while (result.next())
-            {
-                System.out.println(result.getInt(1));
-                System.out.println(result.getInt(2));
-                System.out.println(result.getString(3));
-                System.out.println(result.getString(4));
-                System.out.println(result.getDouble(5));
-            }
-        } catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-        System.out.println(result.toString());
-    }
+    
 }

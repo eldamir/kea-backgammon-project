@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="211.0" prefWidth="261.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OverlayGameMenuController">
+<AnchorPane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="250.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.OverlayGameMenuController">
   <children>
-    <AnchorPane layoutX="2.0" layoutY="-26.0" prefHeight="230.0" prefWidth="270.0">
+    <AnchorPane prefHeight="300.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-      	<Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="217.0" layoutX="-6.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
-        <Button fx:id="btnGameMenuLoad" layoutX="86.0" layoutY="100.0" mnemonicParsing="false" onAction="#loadPressed" text="Load" />
-        <Button fx:id="btnGameMenuSave" layoutX="144.0" layoutY="100.0" mnemonicParsing="false" onAction="#savePressed" text="Save" />
-        <Button fx:id="btnGameMenuNewGame" layoutX="100.0" layoutY="54.0" mnemonicParsing="false" onAction="#newGamePressed" text="New game" />
-        <Button fx:id="btnGameMenuLogOut" layoutX="107.0" layoutY="132.0" mnemonicParsing="false" onAction="#logOutPressed" text="Log out" />
-        <Button fx:id="btnGameMenuResume" layoutX="108.0" layoutY="202.0" mnemonicParsing="false" onAction="#resumePressed" text="Resume" />
-        <Button fx:id="btnGameMenuQuit" layoutX="117.0" layoutY="164.0" mnemonicParsing="false" onAction="#quitPressed" text="Quit" />
-      	<Text layoutX="58.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME MENU"><font><Font size="27.0" /></font></Text>
+        <Text id="menuHeadline" fill="WHITE" layoutX="44.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME MENU">
+          <font>
+            <Font size="27.0" />
+          </font>
+        </Text>
+        <Button fx:id="btnGameMenuLoad" layoutX="28.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPressed" prefHeight="40.0" prefWidth="80.0" styleClass="fancyButton" text="Load" />
+        <Button fx:id="btnGameMenuSave" layoutX="135.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savePressed" prefHeight="40.0" prefWidth="80.0" styleClass="fancyButton" text="Save" />
+        <Button fx:id="btnGameMenuNewGame" layoutX="50.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newGamePressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="New game" />
+        <Button fx:id="btnGameMenuLogOut" layoutX="50.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logOutPressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="Log out" />
+        <Button fx:id="btnGameMenuQuit" layoutX="50.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitPressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="Quit" />
+        <Button fx:id="btnGameMenuResume" layoutX="50.0" layoutY="265.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#resumePressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="Resume" />
       </children>
     </AnchorPane>
   </children>
+  <stylesheets>
+    <URL value="@overlay.css" />
+  </stylesheets>
 </AnchorPane>
