@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="688.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OverlayController">
+<AnchorPane prefHeight="683.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OverlayController">
   <!-- TODO Add Nodes -->
   <children>
     <VBox id="VBox" alignment="CENTER" prefHeight="768.0" prefWidth="1024.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -12,19 +12,19 @@
         <AnchorPane fx:id="boardContainer" minHeight="-1.0" minWidth="600.0" prefHeight="450.0" prefWidth="800.0" />
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="1024.0">
           <children>
-            <HBox id="HBox" alignment="CENTER" layoutX="574.0" layoutY="243.0" spacing="5.0">
+            <HBox id="HBox" alignment="CENTER" layoutX="578.0" layoutY="137.0" spacing="5.0">
               <children>
                 <Label id="lblLevel" fx:id="lblOverlayDifficultyText" text="levelText" />
                 <Label id="difficulty" fx:id="lblOverlayDifficulty" text="level" />
               </children>
             </HBox>
-            <HBox id="HBox" alignment="CENTER" layoutX="366.0" layoutY="243.0" spacing="5.0">
+            <HBox id="HBox" alignment="CENTER" layoutX="348.0" layoutY="137.0" spacing="5.0">
               <children>
                 <Label fx:id="lblOverlayScoreText" text="lblScoreText" />
                 <Label id="score" fx:id="lblOverlayScore" style="&#10;" text="score" />
               </children>
             </HBox>
-            <HBox id="HBox" alignment="CENTER" layoutX="82.0" layoutY="223.0" spacing="5.0">
+            <HBox id="HBox" alignment="CENTER" layoutX="50.0" layoutY="137.0" spacing="5.0">
               <children>
                 <Label fx:id="lblOverlayPlayerNameText" text="LabelPlayerName" />
                 <Label id="userName" fx:id="lblOverlayUserName" text="playerName" />
