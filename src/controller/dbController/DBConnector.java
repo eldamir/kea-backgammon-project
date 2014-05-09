@@ -17,30 +17,35 @@ public abstract class DBConnector
         return queryHelper(query, update);
     }
 
-    public static CachedRowSetImpl query(String query) {
+    public static CachedRowSetImpl query(String query)
+    {
         return queryHelper(query, false);
     }
 
-    private static void parseResultSet(ResultSet results) {
+    private static void parseResultSet(ResultSet results)
+    {
 
     }
 
-    private static CachedRowSetImpl queryHelper(String query, boolean update) {
+    private static CachedRowSetImpl queryHelper(String query, boolean update)
+    {
         Connection c = null;
         Statement stmt = null;
         try
         {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:"+DBConnector.DATABASE_NAME);
+            c = DriverManager.getConnection("jdbc:sqlite:" + DBConnector.DATABASE_NAME);
 
             stmt = c.createStatement();
 
-            if (update) {
+            if (update)
+            {
                 stmt.executeUpdate(query);
                 stmt.close();
                 c.close();
                 return null;
-            } else {
+            } else
+            {
                 ResultSet results = stmt.executeQuery(query);
                 CachedRowSetImpl rowset = new CachedRowSetImpl();
                 rowset.populate(results);
@@ -56,7 +61,8 @@ public abstract class DBConnector
         return null;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         String sql = "DROP TABLE COMPANY";
         DBConnector.query(sql, true);
 
@@ -76,7 +82,8 @@ public abstract class DBConnector
 
         try
         {
-            while (result.next()) {
+            while (result.next())
+            {
                 System.out.println(result.getInt(1));
                 System.out.println(result.getInt(2));
                 System.out.println(result.getString(3));
