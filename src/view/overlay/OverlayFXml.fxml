@@ -38,7 +38,7 @@
                 <Label id="lblDiceTwo" fx:id="lblOverlayDiceTwo" prefHeight="50.0" prefWidth="50.0" style="" text="" />
               </children>
             </HBox>
-            <Button id="btnMenu" fx:id="btnOverlayMenu" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" text="Menu" />
+            <Button id="btnMenu" fx:id="btnOverlayMenu" cancelButton="true" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" text="Menu" />
           </children>
         </AnchorPane>
       </children>
