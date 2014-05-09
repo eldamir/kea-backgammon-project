@@ -1,6 +1,5 @@
 package model.board;
 import java.util.ArrayList;
-
 import model.piece.Piece;
 
 
@@ -11,6 +10,7 @@ import model.piece.Piece;
  */
 public class BoardState 
 {
+	private static BoardState BoardState;
 	/**
 	 * this is an arraylist that contains the state of the board
 	 * 
@@ -22,7 +22,36 @@ public class BoardState
 	 * the other for the computer.
 	 */
 	private static ArrayList<ArrayList<Piece>> boardState = new ArrayList<ArrayList<Piece>>(29);
+	
 	private static boolean turn = true;
+	
+	public BoardState(ArrayList<ArrayList<Piece>> Boardstate)
+	{
+		boardState = Boardstate;
+	}
+	
+	public BoardState(BoardState previous, Move newMove)
+	{
+		int pos = newMove.getPosition();
+		Piece p = newMove.getPiece();
+		BoardRules rules = new BoardRules();
+		
+		if(rules.isLegalMove){
+		for(int i=0; i<boardState.size(); i++)
+		{
+			ArrayList<Piece> spike = boardState.get(i);
+			for(int j=0; j<spike.size(); j++)
+			{
+				if(spike.get(j).equals(p))
+				{
+					spike.set(pos, p);
+					j = spike.size() - 1;
+				}
+			}
+			boardState.set(boardState.indexOf(spike), spike);
+		}
+		}
+	}
 	
 	/**
 	 * 
