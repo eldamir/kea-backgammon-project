@@ -22,6 +22,7 @@ public class BoardState
 	 * the other for the computer.
 	 */
 	private static ArrayList<ArrayList<Piece>> boardState = new ArrayList<ArrayList<Piece>>(29);
+	
 	private static boolean turn = true;
 	
 	/**
