@@ -21,55 +21,103 @@ public class BoardState
 	 * the field in the middle is separated in two fields one for the user and
 	 * the other for the computer.
 	 */
-	private static ArrayList<ArrayList<Piece>> boardState;
+	private ArrayList[] board = new ArrayList[28];
 	
 	private static boolean turn = true;
 	
-	public BoardState(ArrayList<Piece> pieces)
+	/**
+	 * så man er nød til at kalde boardstate 8 gange
+	 * før alle brikkerne er sat på deres start pladser
+	 * @param spice
+	 */
+	public BoardState(ArrayList<Piece> spice)
 	{
-		boardState = new ArrayList<ArrayList<Piece>>(); 
-	}
-	
-	public BoardState(BoardState previous, Move newMove)
-	{
-		int pos = newMove.getPosition();
-		Piece p = newMove.getPiece();
-		BoardRules rules = new BoardRules();
-		
-		
-		for(int i=0; i<previous.boardState.size(); i++)
+		if(spice.size() == 2 && (!spice.get(0).isWhite()))
 		{
-			ArrayList<Piece> spike = previous.boardState.get(i);
-			for(int j=0; j<spike.size(); j++)
-			{
-				if(spike.get(j).equals(p))
-				{
-					spike.set(pos, p);
-					spike.remove(previous.boardState.indexOf(p));
-					j = spike.size() - 1;
-				}
-			}
-			boardState.set(previous.boardState.indexOf(spike), spike);
-		
+			board[0] = spice;
+		}
+		else if(spice.size() == 2 && spice.get(0).isWhite())
+		{
+			board[23] = spice;
+		}
+		else if(board[5]== null && spice.size() == 5 && spice.get(0).isWhite())
+		{
+			board[5] = spice;
+		}
+		else if(board[5] == null && spice.size() == 5 && (!spice.get(0).isWhite()))
+		{
+			board[18] = spice;
+		}
+		else if(spice.size() == 3 && spice.get(0).isWhite())
+		{
+		   board[7] = spice;	
+		}
+		else if(spice.size() == 3 && (!spice.get(0).isWhite()))
+		{
+		   board[16] = spice;	
+		}
+		else if(spice.size() == 5 && (!spice.get(0).isWhite()))
+		{
+			board[11] = spice;
+		}
+		else if(spice.size() == 5 && spice.get(0).isWhite())
+		{
+			board[12] = spice;
 		}
 	}
+	
+	/** 
+	 * @param current boardState gets updated
+	 * @param Move are used to get the piece which will be moved to a chosen spike
+	 */
+	public void updateBoardState(BoardState previousBoardState, Move newMove)
+	{
+		/**
+		 * 
+		 * så pos er en bestemt spice position
+		 */
+		int spikePos = newMove.getPosition();
+		Piece p = newMove.getPiece();
+		
+		
+		for(int i=0; i<=23; i++)
+		{
+		    
+			 ArrayList<Piece> spike = previousBoardState.board[i];
+			 for(int j=0; j<spike.size(); j++)
+			 { 
+				if(spike.get(j).equals(p))
+				{
+					spike.remove(spike.indexOf(spike.get(j)));
+					
+					previousBoardState.board[i] = spike;
+					
+					spike = previousBoardState.board[spikePos]; 
+					
+					spike.add(p);
+					
+					previousBoardState.board[spikePos] = spike;
+					
+					j = spike.size() - 1;
+					
+					i = 23; 
+				}
+			
+			}
+		 }
+		
+		BoardState = previousBoardState;
+      }
+	
+	
 	
 	/**
 	 * 
 	 * @return current state of the board until updated
 	 */
-	public static BoardState getBoardState()
+	public BoardState getBoardState()
 	{
 		return BoardState;
-	}
-	
-	/**
-	 * 
-	 * @param board gets updated so the current board state changes
-	 */
-	public static void updateBoardState(BoardState boardstate)
-	{
-		BoardState = boardstate;
 	}
 	
 	/**
@@ -83,9 +131,9 @@ public class BoardState
 		return turn;
 	}
 	
-	public static ArrayList<Piece> getSpike(int n)
+	public ArrayList<Piece> getSpike(int n)
 	{
-		ArrayList<Piece> spike = boardState.get(n);
+		ArrayList<Piece> spike = board[n];
 		return spike;
 	}
 
