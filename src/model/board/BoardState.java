@@ -21,13 +21,13 @@ public class BoardState
 	 * the field in the middle is separated in two fields one for the user and
 	 * the other for the computer.
 	 */
-	private static ArrayList<ArrayList<Piece>> boardState = new ArrayList<ArrayList<Piece>>(29);
+	private static ArrayList<ArrayList<Piece>> boardState;
 	
 	private static boolean turn = true;
 	
-	public BoardState(ArrayList<ArrayList<Piece>> Boardstate)
+	public BoardState(ArrayList<Piece> pieces)
 	{
-		boardState = Boardstate;
+		boardState = new ArrayList<ArrayList<Piece>>(); 
 	}
 	
 	public BoardState(BoardState previous, Move newMove)
@@ -36,20 +36,21 @@ public class BoardState
 		Piece p = newMove.getPiece();
 		BoardRules rules = new BoardRules();
 		
-		if(rules.isLegalMove){
-		for(int i=0; i<boardState.size(); i++)
+		
+		for(int i=0; i<previous.boardState.size(); i++)
 		{
-			ArrayList<Piece> spike = boardState.get(i);
+			ArrayList<Piece> spike = previous.boardState.get(i);
 			for(int j=0; j<spike.size(); j++)
 			{
 				if(spike.get(j).equals(p))
 				{
 					spike.set(pos, p);
+					spike.remove(previous.boardState.indexOf(p));
 					j = spike.size() - 1;
 				}
 			}
-			boardState.set(boardState.indexOf(spike), spike);
-		}
+			boardState.set(previous.boardState.indexOf(spike), spike);
+		
 		}
 	}
 	
@@ -57,18 +58,18 @@ public class BoardState
 	 * 
 	 * @return current state of the board until updated
 	 */
-	public static ArrayList<ArrayList<Piece>> getBoardState()
+	public static BoardState getBoardState()
 	{
-		return boardState;
+		return BoardState;
 	}
 	
 	/**
 	 * 
 	 * @param board gets updated so the current board state changes
 	 */
-	public static void updateBoardState(ArrayList<ArrayList<Piece>> boardstate)
+	public static void updateBoardState(BoardState boardstate)
 	{
-		boardState = boardstate;
+		BoardState = boardstate;
 	}
 	
 	/**
