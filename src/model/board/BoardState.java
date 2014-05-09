@@ -5,12 +5,12 @@ import model.piece.Piece;
 
 /**
  * @author Rami Muhammedbrhan and Max Jensen
- * @version 1.0
+ * @version 1.1
  * @since 2014-05-08
  */
 public class BoardState 
 {
-	private static BoardState BoardState;
+	private BoardState BoardState;
 	/**
 	 * this is an arraylist that contains the state of the board
 	 * 
@@ -44,7 +44,7 @@ public class BoardState
 		{
 			board[5] = spice;
 		}
-		else if(board[5] == null && spice.size() == 5 && (!spice.get(0).isWhite()))
+		else if(board[18] == null && spice.size() == 5 && (!spice.get(0).isWhite()))
 		{
 			board[18] = spice;
 		}
