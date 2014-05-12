@@ -3,7 +3,10 @@ package model.board;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.BoardController;
+import model.dice.Dice;
 import model.piece.Piece;
+import model.player.Player;
 
 /** Handles the rules of the board
  * @since 8/5
@@ -11,23 +14,24 @@ import model.piece.Piece;
  */
 public class BoardRules 
 {
-	
-	
 	/** Checks if a move of a game piece is legal
 	 * @param piece The game piece in the move
 	 * @param boardState The state of the board to check on
-	 * @param diceRoll Dice roll used for this move
+	 * @param moveDistance Dice roll used for this move
 	 * @return Whether the move is legal
 	 */
-	public boolean isLegalMove(Piece piece, BoardState boardState, int diceRoll)
+	public static boolean isLegalMove(Piece piece, BoardState boardState, Dice diceRoll)
 	{
-		int boardPosToCheck = piece.getBoardPlacement() + diceRoll;
+		int	boardPosToCheck = piece.getBoardPlacement() + diceRoll.getValue();
 		ArrayList<Piece> spikeState = boardState.getSpike(boardPosToCheck); // So will boardState be an object or not?
-		if (boardPosToCheck >= 0 && boardPosToCheck < 26)	// 26 = 24 spikes, 1 blackHome and 1 whiteHome
+		if (boardPosToCheck >= BoardController.FIRST_SPIKE_NR && boardPosToCheck < BoardController.FIRST_SPIKE_NR)
 		{
-			if (spikeState.isEmpty() 
+			if (
+				spikeState.isEmpty() 
 				|| spikeState.get(0).isWhite() == piece.isWhite()
-				|| spikeState.size() == 1)
+				|| spikeState.size() == 1
+				// TODO add gate for forward move only (in accordance to piece colour)
+				)
 			{
 				return true;
 			}
@@ -42,18 +46,28 @@ public class BoardRules
 	 * @param boardState The state of the board to check on
 	 * @return A list of legal positions for the piece
 	 */
-	public List<Integer> legalMoves(Piece piece, List<Integer> rollOfDices, BoardState boardState)
+	public static List<Integer> legalMoves(Piece piece, List<Dice> rollOfDices, BoardState boardState)
 	{
 		ArrayList<Integer> legalPositions = new ArrayList<Integer>();
-		for (Integer diceRoll: rollOfDices)
+		for (Dice diceRoll: rollOfDices)
 		{
 			if (isLegalMove(piece, boardState, diceRoll))
 			{
-				legalPositions.add(piece.getBoardPlacement() + diceRoll);
+				int diceValue = piece.isWhite() ? diceRoll.getValue() : diceRoll.getValue() * -1; // If the piece is black, the value of a move is made negative
+				legalPositions.add(piece.getBoardPlacement() + diceValue);
 			}
 		}
 		return legalPositions;
 	}
 	
-	
+	/* Is it overkill having this as a method? It is in fact a rule of the game that you
+	 * can only move a piece of your own colour. */
+	/**
+	 * @param activePlayer Player whose turn it is
+	 * @return Whether the piece belongs to the active player
+	 */
+	public static boolean isPieceOfActivePlayer(Player activePlayer, Piece piece)
+	{
+		return activePlayer.isWhite() == piece.isWhite();
+	}
 }

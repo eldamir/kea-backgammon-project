@@ -21,8 +21,8 @@ import model.piece.Piece;
 public class BoardController 
 {
     // Game fields position assignment
-    private static final int FIRST_SPIKE_NR = 0;
-    private static final int LAST_SPIKE_NR = 23;
+    public static final int FIRST_SPIKE_NR = 0;
+    public static final int LAST_SPIKE_NR = 23;
     private static final int FIRST_TOP_SPIKE_NR = 12;
     private static final int BLACK_PRISON = 24;
     private static final int WHITE_PRISON = 25;

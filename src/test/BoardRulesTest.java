@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.board.BoardRules;
 import model.board.BoardState;
+import model.dice.Dice;
 import model.piece.Piece;
 
 import org.junit.Before;
@@ -32,8 +33,8 @@ public class BoardRulesTest
 	{
 		BoardState emptyBoard = new BoardState(); // To fix: Mimic instantiating until boardState is done
 		Piece piecePos20 = new Piece(true, 20);
-		assertTrue(boardRules.isLegalMove(piecePos20, emptyBoard, 3));
-		assertFalse(boardRules.isLegalMove(piecePos20, emptyBoard, 10));
+		assertTrue(boardRules.isLegalMove(piecePos20, emptyBoard, new Dice(3)));
+		assertFalse(boardRules.isLegalMove(piecePos20, emptyBoard, new Dice(10)));
 	}
 	
 	@Test
@@ -42,14 +43,14 @@ public class BoardRulesTest
 		Piece whitePiecePos10 = new Piece(true, 10);
 		
 		BoardState loneBlackAtPos14Board = new BoardState(); // :To fix 
-		assertTrue(boardRules.isLegalMove(whitePiecePos10, loneBlackAtPos14Board, 4));
+		assertTrue(boardRules.isLegalMove(whitePiecePos10, loneBlackAtPos14Board, new Dice(4)));
 		
 		BoardState twoBlackAtPos14Board = new BoardState(); // :To fix 
 		BoardState threeBlackAtPos14Board = new BoardState(); // :To fix 
 		BoardState tenBlackAtPos14Board = new BoardState(); // :To fix 
-		assertFalse(boardRules.isLegalMove(whitePiecePos10, twoBlackAtPos14Board, 4));
-		assertFalse(boardRules.isLegalMove(whitePiecePos10, threeBlackAtPos14Board, 4));
-		assertFalse(boardRules.isLegalMove(whitePiecePos10, tenBlackAtPos14Board, 4));
+		assertFalse(boardRules.isLegalMove(whitePiecePos10, twoBlackAtPos14Board, new Dice(4)));
+		assertFalse(boardRules.isLegalMove(whitePiecePos10, threeBlackAtPos14Board, new Dice(4)));
+		assertFalse(boardRules.isLegalMove(whitePiecePos10, tenBlackAtPos14Board, new Dice(4)));
 	}
 	
 	@Test
@@ -58,14 +59,14 @@ public class BoardRulesTest
 		Piece blackPiecePos10 = new Piece(true, 10);
 		
 		BoardState loneWhiteAtPos14Board = new BoardState(); // :To fix 
-		assertTrue(boardRules.isLegalMove(blackPiecePos10, loneWhiteAtPos14Board, 4));
+		assertTrue(boardRules.isLegalMove(blackPiecePos10, loneWhiteAtPos14Board, new Dice(4)));
 		
 		BoardState twoWhiteAtPos14Board = new BoardState(); // :To fix 
 		BoardState threeWhiteAtPos14Board = new BoardState(); // :To fix 
 		BoardState tenWhiteAtPos14Board = new BoardState(); // :To fix 
-		assertFalse(boardRules.isLegalMove(blackPiecePos10, twoWhiteAtPos14Board, 4));
-		assertFalse(boardRules.isLegalMove(blackPiecePos10, threeWhiteAtPos14Board, 4));
-		assertFalse(boardRules.isLegalMove(blackPiecePos10, tenWhiteAtPos14Board, 4));
+		assertFalse(boardRules.isLegalMove(blackPiecePos10, twoWhiteAtPos14Board, new Dice(4)));
+		assertFalse(boardRules.isLegalMove(blackPiecePos10, threeWhiteAtPos14Board, new Dice(4)));
+		assertFalse(boardRules.isLegalMove(blackPiecePos10, tenWhiteAtPos14Board, new Dice(4)));
 	}
 	
 	
@@ -76,7 +77,7 @@ public class BoardRulesTest
 	public void testLegalMoves_NormalRoll()
 	{
 		// Piece at pos 2, rolls of 3 and 6 at empty board
-		List<Integer> rollOfDices = Arrays.asList(3,6);
+		List<Dice> rollOfDices = Arrays.asList(new Dice(3), new Dice(6));
 		Piece piecePos2 = new Piece(true, 2);
 		List<Integer> expectedList;
 		
@@ -97,7 +98,7 @@ public class BoardRulesTest
 	public void testLegalMoves_DoubleRoll()
 	{
 		// Piece at pos 6, rolls of 4,4,4 and 4 at empty board (Only one move of 4 is possible)
-		List<Integer> rollOfDices = Arrays.asList(4,4,4,4);
+		List<Dice> rollOfDices = Arrays.asList(new Dice(4),new Dice(4),new Dice(4),new Dice(4));
 		Piece piecePos6 = new Piece(true, 6);
 		List<Integer> expectedList;
 		

@@ -11,28 +11,44 @@ package model.dice;
  */
 public class Dice
 {
-	private int value = -1;
+	private int rollValue = -1;
 
-	/**
-	 * Simulates a D6 roll.
-	 * 
+	public Dice()
+	{
+	}
+	
+	public Dice(int knownValue)
+	{
+		rollValue = knownValue;
+	}
+	
+	/** Simulates a D6 roll.
 	 * @since 1.0
 	 * @return The face value of the D6 roll.
 	 */
 	public int roll()
 	{
-
-		value = (int)(Math.random() * 6) + 1;
-		return value;
+		rollValue = (int)(Math.random() * 6) + 1;
+		return rollValue;
 	}
 
 	public int getValue()
 	{
-		return value;
+		return rollValue;
 	}
 
 	public void setValue(int value)
 	{
-		this.value = value;
+		this.rollValue = value;
+	}
+	
+	/** For use during a roll of identical values on both dice
+	 * @return A new dice with same roll value as source
+	 */
+	public Dice copyOfDice()
+	{
+		Dice copyDice = new Dice();
+		copyDice.setValue(rollValue);
+		return copyDice;
 	}
 }
