@@ -10,7 +10,6 @@ import model.piece.Piece;
  */
 public class BoardState 
 {
-	private BoardState BoardState;
 	/**
 	 * this is an arraylist that contains the state of the board
 	 * 
@@ -26,51 +25,85 @@ public class BoardState
 	private static boolean turn = true;
 	
 	/**
-	 * så man er nød til at kalde boardstate 8 gange
-	 * før alle brikkerne er sat på deres start pladser
-	 * @param spice
+	 * Initialize default state
 	 */
-	public BoardState(ArrayList<Piece> spice)
+	public BoardState()
 	{
-		if(spice.size() == 2 && (!spice.get(0).isWhite()))
-		{
-			board[0] = spice;
+		for (int i = 0; i < this.board.length; i++) {
+			this.board[i] = new ArrayList<Piece>();
 		}
-		else if(spice.size() == 2 && spice.get(0).isWhite())
-		{
-			board[23] = spice;
+		
+		for(int i = 1; i <= 2; i++){
+			this.board[1].add(new Piece(false, 1));
 		}
-		else if(board[5]== null && spice.size() == 5 && spice.get(0).isWhite())
-		{
-			board[5] = spice;
+		
+		for(int i = 1; i <= 5; i++){
+			this.board[6].add(new Piece(true, 6));
 		}
-		else if(board[18] == null && spice.size() == 5 && (!spice.get(0).isWhite()))
-		{
-			board[18] = spice;
+		
+		for(int i = 1; i <= 3; i++){
+			this.board[8].add(new Piece(true, 8));
 		}
-		else if(spice.size() == 3 && spice.get(0).isWhite())
-		{
-		   board[7] = spice;	
+		
+		for(int i = 1; i <= 5; i++){
+			this.board[12].add(new Piece(false, 12));
 		}
-		else if(spice.size() == 3 && (!spice.get(0).isWhite()))
-		{
-		   board[16] = spice;	
+		
+		for(int i = 1; i <= 5; i++){
+			this.board[13].add(new Piece(true, 13));
 		}
-		else if(spice.size() == 5 && (!spice.get(0).isWhite()))
-		{
-			board[11] = spice;
+		
+		for(int i = 1; i <= 3; i++){
+			this.board[17].add(new Piece(false, 17));
 		}
-		else if(spice.size() == 5 && spice.get(0).isWhite())
-		{
-			board[12] = spice;
+		
+		for(int i = 1; i <= 5; i++){
+			this.board[19].add(new Piece(false, 19));
 		}
+		
+		for(int i = 1; i <= 2; i++){
+			this.board[24].add(new Piece(true, 24));
+		}
+		
+//		if(spike.size() == 2 && (!spike.get(0).isWhite()))
+//		{
+//			board[0] = spike;
+//		}
+//		else if(spike.size() == 2 && spike.get(0).isWhite())
+//		{
+//			board[23] = spike;
+//		}
+//		else if(board[5]== null && spike.size() == 5 && spike.get(0).isWhite())
+//		{
+//			board[5] = spike;
+//		}
+//		else if(board[18] == null && spike.size() == 5 && (!spike.get(0).isWhite()))
+//		{
+//			board[18] = spike;
+//		}
+//		else if(spike.size() == 3 && spike.get(0).isWhite())
+//		{
+//		   board[7] = spike;	
+//		}
+//		else if(spike.size() == 3 && (!spike.get(0).isWhite()))
+//		{
+//		   board[16] = spike;	
+//		}
+//		else if(spike.size() == 5 && (!spike.get(0).isWhite()))
+//		{
+//			board[11] = spike;
+//		}
+//		else if(spike.size() == 5 && spike.get(0).isWhite())
+//		{
+//			board[12] = spike;
+//		}
 	}
 	
 	/** 
 	 * @param current boardState gets updated
 	 * @param Move are used to get the piece which will be moved to a chosen spike
 	 */
-	public void updateBoardState(BoardState previousBoardState, Move newMove)
+	public BoardState(BoardState previousBoardState, Move newMove)
 	{
 		/**
 		 * 
@@ -80,33 +113,15 @@ public class BoardState
 		Piece p = newMove.getPiece();
 		
 		
-		for(int i=0; i<=23; i++)
+		for(int i=1; i<=24; i++)
 		{
 		    
 			 ArrayList<Piece> spike = previousBoardState.board[i];
-			 for(int j=0; j<spike.size(); j++)
-			 { 
-				if(spike.get(j).equals(p))
-				{
-					spike.remove(spike.indexOf(spike.get(j)));
-					
-					previousBoardState.board[i] = spike;
-					
-					spike = previousBoardState.board[spikePos]; 
-					
-					spike.add(p);
-					
-					previousBoardState.board[spikePos] = spike;
-					
-					j = spike.size() - 1;
-					
-					i = 23; 
-				}
-			
-			}
-		 }
+			 board[i].addAll(spike);
+		}
 		
-		BoardState = previousBoardState;
+		// TODO: move piece
+		
       }
 	
 	
@@ -115,9 +130,9 @@ public class BoardState
 	 * 
 	 * @return current state of the board until updated
 	 */
-	public BoardState getBoardState()
+	public ArrayList[] getBoard()
 	{
-		return BoardState;
+		return this.board;
 	}
 	
 	/**
@@ -125,10 +140,9 @@ public class BoardState
 	 * @param Turn
 	 * @return if true then user is playing, if false computer is playing
 	 */
-	public static boolean shiftTurn(boolean Turn)
+	public void shiftTurn()
 	{
-		turn = Turn;
-		return turn;
+		this.turn = !turn;
 	}
 	
 	public ArrayList<Piece> getSpike(int n)
