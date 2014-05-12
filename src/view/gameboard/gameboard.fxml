@@ -4,61 +4,89 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.BoardController">
+<AnchorPane id="AnchorPane" fx:id="fullBoard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.BoardController">
   <children>
     <ImageView id="PrimevalD.gif" fitHeight="450.0" fitWidth="518.0" layoutX="1.0" layoutY="0.0">
       <image>
         <Image url="@../../resources/gameboard/PrimevalD.gif" />
       </image>
     </ImageView>
-    <HBox id="HBox" alignment="CENTER" layoutX="0.0" layoutY="0.0" spacing="5.0" />
-    <ImageView id="homeFields.png" fitHeight="449.9999694824219" fitWidth="88.00000762939453" layoutX="518.0" layoutY="0.0" preserveRatio="false">
+    <ImageView id="homeFields.png" fitHeight="449.9999694824219" fitWidth="81.00000762939453" layoutX="519.0" layoutY="0.0" preserveRatio="false">
       <image>
         <Image url="@../../resources/gameboard/homeFields.png" />
       </image>
     </ImageView>
-    <HBox id="piiceChamber1" fx:id="pieceChamberSE" alignment="CENTER_RIGHT" layoutX="281.0" layoutY="259.0" prefHeight="191.0" prefWidth="237.0">
-      <children>
-        <VBox fx:id="spikeSE6" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-        <VBox fx:id="spikeSE5" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-        <VBox fx:id="spikeSE4" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="46.0" />
-        <VBox fx:id="spikeSE3" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="46.0" />
-        <VBox fx:id="spikeSE2" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-        <VBox fx:id="spikeSE1" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-      </children>
-    </HBox>
-    <HBox id="piiceChamber1" fx:id="pieceChamberSW" layoutX="0.0" layoutY="259.0" prefHeight="191.0" prefWidth="237.0">
-      <children>
-        <VBox id="spikeSE6" fx:id="spikeSW12" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE5" fx:id="spikeSW11" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE4" fx:id="spikeSW10" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="46.0" />
-        <VBox id="spikeSE3" fx:id="spikeSW9" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="46.0" />
-        <VBox id="spikeSE2" fx:id="spikeSW8" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE1" fx:id="spikeSW7" alignment="BOTTOM_CENTER" prefHeight="191.0" prefWidth="38.0" />
-      </children>
-    </HBox>
-    <HBox id="piiceChamber1" fx:id="pieceChamberNE" layoutX="281.0" layoutY="0.0" prefHeight="191.0" prefWidth="237.0">
-      <children>
-        <VBox id="spikeSE6" fx:id="spikeNE19" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE5" fx:id="spikeNE20" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE4" fx:id="spikeNE21" prefHeight="191.0" prefWidth="46.0" />
-        <VBox id="spikeSE3" fx:id="spikeNE22" prefHeight="191.0" prefWidth="46.0" />
-        <VBox id="spikeSE2" fx:id="spikeNE23" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE1" fx:id="spikeNE24" prefHeight="191.0" prefWidth="38.0" />
-      </children>
-    </HBox>
-    <HBox id="piiceChamber1" fx:id="pieceChamberNW" layoutX="1.0" layoutY="0.0" prefHeight="191.0" prefWidth="237.0">
-      <children>
-        <VBox id="spikeSE6" fx:id="spikeNW13" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE5" fx:id="spikeNW14" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE4" fx:id="spikeNW15" prefHeight="191.0" prefWidth="46.0" />
-        <VBox id="spikeSE3" fx:id="spikeNW16" prefHeight="191.0" prefWidth="46.0" />
-        <VBox id="spikeSE2" fx:id="spikeNW17" prefHeight="191.0" prefWidth="38.0" />
-        <VBox id="spikeSE1" fx:id="spikeNW18" prefHeight="191.0" prefWidth="38.0" />
-      </children>
-    </HBox>
-    <VBox fx:id="blackHome" layoutX="532.0" layoutY="225.0" prefHeight="211.0" prefWidth="53.0" />
-    <VBox id="blackHome" fx:id="whiteHome" layoutX="536.0" layoutY="1.0" prefHeight="208.0" prefWidth="53.0" />
-    <AnchorPane fx:id="prisonField" layoutX="241.0" layoutY="212.0" minHeight="36.0" minWidth="27.0" prefHeight="36.0" prefWidth="40.0" />
+    <AnchorPane fx:id="blackPrison" layoutX="240.0" layoutY="96.0" prefHeight="123.0" prefWidth="39.0" />
+    <AnchorPane fx:id="whitePrison" layoutX="240.0" layoutY="232.0" prefHeight="123.0" prefWidth="39.0" />
+    <AnchorPane id="blackPrison" fx:id="whiteHome" layoutX="544.0" layoutY="14.0" prefHeight="184.0" prefWidth="39.0" />
+    <AnchorPane id="blackPrison" fx:id="blackHome" layoutX="544.0" layoutY="252.0" prefHeight="184.0" prefWidth="39.0" />
+    <GridPane id="spikesSW" fx:id="spikesNE" alignment="TOP_RIGHT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="279.0" layoutY="0.0" maxHeight="195.0" maxWidth="240.0" minHeight="195.0" minWidth="240.0" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="195.0" prefWidth="240.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints fillHeight="true" maxHeight="39.0" minHeight="39.0" percentHeight="-1.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane id="spikesSW" fx:id="spikesNW" alignment="TOP_LEFT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="0.0" layoutY="0.0" maxHeight="195.0" maxWidth="240.0" minHeight="195.0" minWidth="240.0" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="195.0" prefWidth="240.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints fillHeight="true" maxHeight="39.0" minHeight="39.0" percentHeight="-1.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane fx:id="spikesSW" alignment="BASELINE_LEFT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="0.0" layoutY="255.0" maxHeight="195.0" maxWidth="240.0" minHeight="195.0" minWidth="240.0" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="195.0" prefWidth="240.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints fillHeight="true" maxHeight="39.0" minHeight="39.0" percentHeight="-1.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane id="spikesSW" fx:id="spikesSE" alignment="TOP_RIGHT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="279.0" layoutY="255.0" maxHeight="195.0" maxWidth="240.0" minHeight="195.0" minWidth="240.0" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="195.0" prefWidth="240.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints fillHeight="true" maxHeight="39.0" minHeight="39.0" percentHeight="-1.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
   </children>
 </AnchorPane>
