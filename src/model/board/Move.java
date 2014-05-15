@@ -18,6 +18,7 @@ public class Move
 	
 	public Move(Piece piece, List<Dice> availableDiceValues, int selectedEndPosition, BoardState boardState)
 	{
+		movedPiece = piece;
 		validMove = false;
 		endPosition = piece.getBoardPlacement();
 		List<Integer> availablePositions = BoardRules.legalMoves(piece, availableDiceValues, boardState);
