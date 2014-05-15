@@ -121,7 +121,18 @@ public class BoardState
 			 board[i].addAll(spike);
 		}
 		
-		// TODO: move piece
+		for(int i=0; i<board[currentSpikePos].size(); i++)
+		{
+			if(board[currentSpikePos].get(i).equals(p))
+			{
+				board[currentSpikePos].remove(i);
+				board[endSpikePos].add(p);
+				
+				p.setBoardPlacement(endSpikePos);
+			}
+		}
+		
+		
 		
       }
 	

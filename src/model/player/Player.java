@@ -1,7 +1,7 @@
 package model.player;
 
 
-import model.board.BoardRules;;
+import model.board.BoardRules;
 
 /** Represents a player
  * @since 8/5
