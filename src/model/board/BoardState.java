@@ -109,8 +109,9 @@ public class BoardState
 		 * 
 		 * så pos er en bestemt spice position
 		 */
-		int spikePos = newMove.getPosition();
+		int endSpikePos = newMove.getPosition();
 		Piece p = newMove.getPiece();
+		int currentSpikePos = p.getBoardPlacement();
 		
 		
 		for(int i=1; i<=24; i++)
