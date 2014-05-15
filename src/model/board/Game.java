@@ -53,7 +53,7 @@ public class Game
 				}
 			}
 			
-			piece.setBoardPlacement(selectedSpike);
+			
 		}
 	}
 	
