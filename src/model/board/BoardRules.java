@@ -24,7 +24,7 @@ public class BoardRules
 	{
 		int	boardPosToCheck = piece.getBoardPlacement() + diceRoll.getValue();
 		ArrayList<Piece> spikeState = boardState.getSpike(boardPosToCheck); // So will boardState be an object or not?
-		if (boardPosToCheck >= BoardController.FIRST_SPIKE_NR && boardPosToCheck < BoardController.FIRST_SPIKE_NR)
+		if (boardPosToCheck >= BoardController.FIRST_SPIKE_NR && boardPosToCheck <= BoardController.LAST_SPIKE_NR)
 		{
 			if (
 				spikeState.isEmpty() 
