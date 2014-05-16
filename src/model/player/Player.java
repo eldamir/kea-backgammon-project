@@ -4,7 +4,7 @@ package model.player;
 import model.board.BoardRules;
 
 /** Represents a one of the two backgammon player
- * @since 8/5
+ * @since 8/5 - 2014
  *
  */
 public class Player 

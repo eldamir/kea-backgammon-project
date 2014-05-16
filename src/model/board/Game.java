@@ -7,6 +7,10 @@ import model.dice.Dice;
 import model.piece.Piece;
 import model.player.Player;
 
+/**
+ *  game contains boardstates and keep track of moves, turns and the rules
+ *
+ */
 public class Game
 {
 	

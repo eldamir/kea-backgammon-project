@@ -4,7 +4,6 @@ import model.piece.Piece;
 
 
 /**
- * @author Rami Muhammedbrhan and Max Jensen
  * @version 1.1
  * @since 2014-05-08
  */
