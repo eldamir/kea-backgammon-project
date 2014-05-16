@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 /**
  * @version 0.1
- * Created by Ruben Nielsen on 5/1/14.
  *
  * A helper for retrieving text from the internationalization library.
  * As this class is abstract, you cannot instantiate it. Instead, simply

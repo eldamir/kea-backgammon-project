@@ -1,23 +1,19 @@
-.fancyButton {
+.fancyButton, .fancyHBox {
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
     -fx-background-color: 
-        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
-        #9d4024,
-        #d86e3a,
-        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-    -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
-    -fx-text-fill: white;
+        linear-gradient(from 0% 93% to 0% 100%, rgba(163, 0, 0, 1) 0%, rgba(144, 0, 0, 1) 100%),
+        rgba(157, 0, 0, 1),
+        rgba(216, 0, 0, 1),
+        radial-gradient(center 50% 50%, radius 100%, rgba(216, 0, 0, 1), rgba(197, 0, 0, 1));
 }
 .fancyButton:hover {
     -fx-background-color: 
-        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
-        #9d4024,
-        #d86e3a,
-        radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+        linear-gradient(from 0% 93% to 0% 100%, rgba(163, 0, 0, 1) 0%, rgba(144, 0, 0, 1) 100%),
+        rgba(157, 0, 0, 1),
+        rgba(157, 0, 0, 1),
+        radial-gradient(center 50% 50%, radius 100%, rgba(234, 0, 0, 1), rgba(197, 0, 0, 1));
 }
 .fancyButton:pressed {
     -fx-padding: 10 15 13 15;
@@ -27,13 +23,29 @@
 #menuPane {
     -fx-border-radius: 8;
     -fx-background-radius: 11;
-    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #000099, #0066FF);
-    -fx-border-color:#d86e3a;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, rgba(245, 245, 245, 1), rgba(200, 200, 200, 1));
+    -fx-border-color:rgba(216, 110, 58, 1);
     -fx-border-width: 5;
     -fx-border-style: solid;
 }
 
 #menuHeadline {
     -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: rgb(160,160,160);
+}
+
+#overlay {
+    -fx-background-color: 
+        linear-gradient(rgba(245, 245, 245, 1) 0%,rgba(200, 200, 200, 1) 100%);
+     -fx-border-width: 3;
+     -fx-border-style: solid;
+     -fx-border-color: rgba(216, 0, 0, 1);
+}
+
+.fancyHBox > Label, .fancyButton > Label {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,1) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
     -fx-text-fill: white;
 }

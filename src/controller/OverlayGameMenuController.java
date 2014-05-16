@@ -10,20 +10,33 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class OverlayGameMenuController implements Initializable{
 	@FXML
-    private Button btnGameMenuNewGame;
+	private Button btnGameMenuNewGame;
 	@FXML
-    private Button btnGameMenuLoad;
+	private Button btnGameMenuLoad;
 	@FXML
-    private Button btnGameMenuSave;
+	private Button btnGameMenuSave;
 	@FXML
-    private Button btnGameMenuLogOut;
+	private Button btnGameMenuLogOut;
 	@FXML
-    private Button btnGameMenuQuit;
+	private Button btnGameMenuQuit;
 	@FXML
-    private Button btnGameMenuResume;
+	private Button btnGameMenuResume;
+	@FXML
+	private Label btnGameMenuNewGameLabel;
+	@FXML
+	private Label btnGameMenuLoadLabel;
+	@FXML
+	private Label btnGameMenuSaveLabel;
+	@FXML
+	private Label btnGameMenuLogOutLabel;
+	@FXML
+	private Label btnGameMenuQuitLabel;
+	@FXML
+	private Label btnGameMenuResumeLabel;
 	
 	private BoardController boardController;
 	private OverlayController overlayController;
@@ -87,27 +100,27 @@ public class OverlayGameMenuController implements Initializable{
 	}
 	
 	public void setBtnLblGameMenuNewGame(String st){
-		btnGameMenuNewGame.setText(st);
+		btnGameMenuNewGameLabel.setText(st);
 	}
 	
 	public void setBtnLblGameMenuLoad(String st){
-		btnGameMenuLoad.setText(st);
+		btnGameMenuLoadLabel.setText(st);
 	}
 	
 	public void setBtnLblGameMenuSave(String st){
-		btnGameMenuSave.setText(st);
+		btnGameMenuSaveLabel.setText(st);
 	}
 	
 	public void setBtnLblGameMenuLogOut(String st){
-		btnGameMenuLogOut.setText(st);
+		btnGameMenuLogOutLabel.setText(st);
 	}
 	
 	public void setBtnLblGameMenuQuit(String st){
-		btnGameMenuQuit.setText(st);
+		btnGameMenuQuitLabel.setText(st);
 	}
 	
 	public void setBtnLblGameMenuReturn(String st){
-		btnGameMenuResume.setText(st);
+		btnGameMenuResumeLabel.setText(st);
 	}
 
 	public void setOverlayController(OverlayController overlayController)

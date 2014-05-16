@@ -3,7 +3,6 @@ package model.dice;
 
 /**
  * 
- * @author Thor-Bjørn Böhme & Ulrik Christensen
  * @version 1.0
  * @since 10:41:26 AM May 1, 2014
  * 

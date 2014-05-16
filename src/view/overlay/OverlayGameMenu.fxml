@@ -16,12 +16,36 @@
             <Font size="27.0" />
           </font>
         </Text>
-        <Button fx:id="btnGameMenuLoad" layoutX="28.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPressed" prefHeight="40.0" prefWidth="80.0" styleClass="fancyButton" text="Load" />
-        <Button fx:id="btnGameMenuSave" layoutX="135.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savePressed" prefHeight="40.0" prefWidth="80.0" styleClass="fancyButton" text="Save" />
-        <Button fx:id="btnGameMenuNewGame" layoutX="50.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newGamePressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="New game" />
-        <Button fx:id="btnGameMenuLogOut" layoutX="50.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logOutPressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="Log out" />
-        <Button fx:id="btnGameMenuQuit" layoutX="50.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitPressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="Quit" />
-        <Button fx:id="btnGameMenuResume" layoutX="50.0" layoutY="265.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#resumePressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="Resume" />
+        <Button fx:id="btnGameMenuLoad" layoutX="28.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPressed" prefHeight="40.0" prefWidth="80.0" styleClass="fancyButton" text="">
+          <graphic>
+            <Label fx:id="btnGameMenuLoadLabel" text="Load" />
+          </graphic>
+        </Button>
+        <Button fx:id="btnGameMenuSave" layoutX="135.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savePressed" prefHeight="40.0" prefWidth="80.0" styleClass="fancyButton" text="">
+          <graphic>
+            <Label fx:id="btnGameMenuSaveLabel" text="Save" />
+          </graphic>
+        </Button>
+        <Button fx:id="btnGameMenuNewGame" layoutX="50.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newGamePressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="">
+          <graphic>
+            <Label id="btnGameMenuNewGame" fx:id="btnGameMenuNewGameLabel" text="New game" />
+          </graphic>
+        </Button>
+        <Button fx:id="btnGameMenuLogOut" layoutX="50.0" layoutY="165.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logOutPressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="">
+          <graphic>
+            <Label id="btnGameMenuQuitlabel" fx:id="btnGameMenuLogOutLabel" text="Log out" />
+          </graphic>
+        </Button>
+        <Button fx:id="btnGameMenuQuit" layoutX="50.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitPressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="">
+          <graphic>
+            <Label fx:id="btnGameMenuQuitLabel" text="Quit" />
+          </graphic>
+        </Button>
+        <Button fx:id="btnGameMenuResume" layoutX="50.0" layoutY="265.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#resumePressed" prefHeight="40.0" prefWidth="150.0" styleClass="fancyButton" text="">
+          <graphic>
+            <Label fx:id="btnGameMenuResumeLabel" text="Resume" />
+          </graphic>
+        </Button>
       </children>
     </AnchorPane>
   </children>

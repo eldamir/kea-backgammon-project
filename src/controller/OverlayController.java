@@ -50,6 +50,15 @@ public class OverlayController implements Initializable
 	private Label lblOverlayDiceTwo;
 
 	@FXML
+	private static Label btnOverlayRollDiceLabel;
+
+	@FXML
+	private static Label btnOverlayMenuLabel;
+
+	@FXML
+	private static Label btnOverlayHintLabel;	
+
+	@FXML
 	private static Button btnOverlayRollDice;
 
 	@FXML
@@ -198,18 +207,18 @@ public class OverlayController implements Initializable
 
 	public void setBtnOverlayRollDice(String btnOverlayRollDiceText)
 	{
-		btnOverlayRollDice.setText(btnOverlayRollDiceText);
+		btnOverlayRollDiceLabel.setText(btnOverlayRollDiceText);
+//		btnOverlayRollDice.setTranslateX(-1.0*);
 	}
 
 	public void setBtnOverlayMenu(String btnOverlayMenuText)
 	{
-		btnOverlayMenu.setText(btnOverlayMenuText);
-
+		btnOverlayMenuLabel.setText(btnOverlayMenuText);
 	}
 
 	public void setBtnOverlayHint(String btnOverlayHintText)
 	{
-		btnOverlayHint.setText(btnOverlayHintText);
+		btnOverlayHintLabel.setText(btnOverlayHintText);
 	}
 
 	public Dice[] getDice()

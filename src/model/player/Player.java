@@ -1,9 +1,9 @@
 package model.player;
 
 
-import model.board.BoardRules;;
+import model.board.BoardRules;
 
-/** Represents a player
+/** Represents a one of the two backgammon player
  * @since 8/5
  *
  */

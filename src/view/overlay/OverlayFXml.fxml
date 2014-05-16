@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -9,40 +10,55 @@
   <children>
     <VBox id="VBox" alignment="CENTER" prefHeight="768.0" prefWidth="1024.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <AnchorPane fx:id="boardContainer" minHeight="-1.0" minWidth="600.0" prefHeight="450.0" prefWidth="800.0" />
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="1024.0">
+        <AnchorPane fx:id="boardContainer" minHeight="-1.0" minWidth="600.0" prefHeight="503.0000915527344" prefWidth="1024.0" />
+        <AnchorPane id="overlay" minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="1024.0">
           <children>
-            <HBox id="HBox" alignment="CENTER" layoutX="578.0" layoutY="137.0" spacing="5.0">
-              <children>
-                <Label id="lblLevel" fx:id="lblOverlayDifficultyText" text="levelText" />
-                <Label id="difficulty" fx:id="lblOverlayDifficulty" text="level" />
-              </children>
-            </HBox>
-            <HBox id="HBox" alignment="CENTER" layoutX="348.0" layoutY="137.0" spacing="5.0">
-              <children>
-                <Label fx:id="lblOverlayScoreText" text="lblScoreText" />
-                <Label id="score" fx:id="lblOverlayScore" style="&#10;" text="score" />
-              </children>
-            </HBox>
-            <HBox id="HBox" alignment="CENTER" layoutX="50.0" layoutY="137.0" spacing="5.0">
+            <HBox id="HBox" alignment="CENTER" layoutX="15.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" spacing="5.0" styleClass="fancyHBox">
               <children>
                 <Label fx:id="lblOverlayPlayerNameText" text="LabelPlayerName" />
                 <Label id="userName" fx:id="lblOverlayUserName" text="playerName" />
               </children>
             </HBox>
-            <Button id="btnHint" fx:id="btnOverlayHint" layoutX="197.0" layoutY="82.0" mnemonicParsing="false" onAction="#triggerHint" styleClass="fancyButton" text="Hint" />
-            <Button id="btnRollDice" fx:id="btnOverlayRollDice" layoutX="583.0" layoutY="82.0" mnemonicParsing="false" onAction="#rollDice" styleClass="fancyButton" text="Roll Dice" />
-            <HBox id="HBox" alignment="CENTER" layoutX="556.0" layoutY="14.0" spacing="20.0">
+            <HBox id="HBox" alignment="CENTER" layoutX="453.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" spacing="5.0" styleClass="fancyHBox">
+              <children>
+                <Label fx:id="lblOverlayScoreText" text="lblScore" />
+                <Label id="score" fx:id="lblOverlayScore" style="&#10;" text="score" />
+              </children>
+            </HBox>
+            <HBox id="HBox" alignment="CENTER" layoutX="822.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" spacing="5.0" styleClass="fancyHBox">
+              <children>
+                <Label id="lblLevel" fx:id="lblOverlayDifficultyText" text="lblLevel" />
+                <Label id="difficulty" fx:id="lblOverlayDifficulty" text="level" />
+              </children>
+            </HBox>
+            <HBox id="HBox" alignment="CENTER" layoutX="851.0" layoutY="63.0" spacing="20.0">
               <children>
                 <Label id="lblDiceOne" fx:id="lblOverlayDiceOne" prefHeight="50.0" prefWidth="50.0" style="&#10;" text="" />
                 <Label id="lblDiceTwo" fx:id="lblOverlayDiceTwo" prefHeight="50.0" prefWidth="50.0" style="" text="" />
               </children>
             </HBox>
-            <Button id="btnMenu" fx:id="btnOverlayMenu" cancelButton="true" layoutX="50.0" layoutY="82.0" mnemonicParsing="false" onAction="#openMenu" styleClass="fancyButton" text="Menu" />
+            <Button id="btnMenu" fx:id="btnOverlayMenu" cancelButton="true" layoutX="15.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openMenu" prefHeight="40.0" styleClass="fancyButton" text="">
+              <graphic>
+                <Label fx:id="btnOverlayMenuLabel" contentDisplay="LEFT" labelFor="$btnOverlayMenu" text="Menu" />
+              </graphic>
+            </Button>
+            <Button id="btnHint" fx:id="btnOverlayHint" layoutX="485.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#triggerHint" prefHeight="40.0" styleClass="fancyButton" text="">
+              <graphic>
+                <Label fx:id="btnOverlayHintLabel" labelFor="$btnOverlayHint" text="Hint" />
+              </graphic>
+            </Button>
+            <Button id="btnRollDice" fx:id="btnOverlayRollDice" layoutX="866.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#rollDice" prefHeight="40.0" styleClass="fancyButton" text="">
+              <graphic>
+                <Label fx:id="btnOverlayRollDiceLabel" labelFor="$btnOverlayRollDice" text="Roll Dice" />
+              </graphic>
+            </Button>
           </children>
         </AnchorPane>
       </children>
     </VBox>
     <AnchorPane fx:id="gameMenuContainer" disable="true" layoutX="368.0" layoutY="192.0" prefHeight="367.0" prefWidth="366.0" visible="false" />
   </children>
+  <stylesheets>
+    <URL value="@overlay.css" />
+  </stylesheets>
 </AnchorPane>
