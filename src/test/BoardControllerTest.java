@@ -23,12 +23,5 @@ public class BoardControllerTest
 		fail("Not yet implemented");
 	}
 
-	@Test
-	public void testInitialize()
-	{
-		boardController.initialize();
-		int countOfSpikes = boardController.getBoardSpikes().size();
-		assertEquals(24, countOfSpikes);
-	}
 
 }

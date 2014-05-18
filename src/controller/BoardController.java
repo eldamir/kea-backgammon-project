@@ -1,9 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -12,6 +9,8 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import model.piece.Piece;
+import model.board.BoardState;
 
 
 public class BoardController 
@@ -50,23 +49,20 @@ public class BoardController
     @FXML
     private AnchorPane whiteHome;
     
-
-    @FXML
-	private AnchorPane fullBoard;
-    
-    
-	private List<Node> boardSpikes;
+	
+	private BoardState currentBoardState;
 	
 	
 	/** Adds a piece to the gameboard
 	 * @param nodeToAdd The piece node to add to board
 	 * @param fieldNumber The spike the piece is added to
+	 * @param spikeRow Row on which piece is to be added
 	 */
-	public void addPieceToField(Node nodeToAdd, int fieldNumber)
+	public void addPieceToField(Node nodeToAdd, int fieldNumber, int spikeRow)
 	{
 	    if (fieldNumber >= FIRST_SPIKE_NR && fieldNumber <= LAST_SPIKE_NR)
 	    {
-	        findSpikeGroup(fieldNumber).add(nodeToAdd, internalSpikeGroupPosition(fieldNumber), topSpikePosition(fieldNumber));
+	        findSpikeGroup(fieldNumber).add(nodeToAdd, internalSpikeGroupPosition(fieldNumber), spikeRow);
 	    }
 	    else 
 	    {
@@ -100,24 +96,7 @@ public class BoardController
 	    }
 	    return internalSpike;
 	}
-
-	// TODO Fix when boardState/game class is ready. Responsibility of getting the first available free position lies in the model layer, not here
-	int tempFieldNr = -1;
-	int tempSpikeCount = 0;
-	private int topSpikePosition(int fieldNumber)
-	{
-//	    int freeYPosition = currentGame.getBoardState.getNumberOfPieces(fieldNumber)%SPIKE_HEIGHT;
-	    if (tempFieldNr == fieldNumber) tempSpikeCount++;
-	    else
-	    {
-	        tempFieldNr = fieldNumber;
-	        tempSpikeCount = 0;
-	    }
-	    int freeYPosition = tempSpikeCount;
-	    // Reversing the int for bottom spikes to fit the GridPane row ordering
-	    if (fieldNumber < FIRST_TOP_SPIKE_NR) freeYPosition = Math.abs(freeYPosition - (SPIKE_HEIGHT - 1));
-	    return freeYPosition;
-	}
+	
 	
     /** Translates a spike number to its containing spike group
      * @param spikeNumber The number of the spike in question
@@ -136,20 +115,6 @@ public class BoardController
         throw new IllegalArgumentException("Argument " + spikeNumber + " is greater number of spikes");
     }
 	
-    
-    
-	List<PieceController> pieceArrayBlack = new ArrayList<PieceController>();
-	List<PieceController> pieceArrayWhite = new ArrayList<PieceController>();
-	
-	/**
-	 * Creating and adding pieces to lists 
-	 */
-	public void addPieces(){
-	    tempPieceInsertion();
-	}
-	
-	
-
 	
 	/** Sets up the game-board for a new game
 	 * 	Clears board, gets method that creates pieces.
@@ -157,9 +122,27 @@ public class BoardController
 	 */
 	public void startBoard()
 	{
-		addPieces();
+	    clearAllSpikes();
+	    currentBoardState = new BoardState();
+		updateBoard();
 	}
 
+	/** An attempt to utilise boardstate to update the gui board
+	 * 
+	 */
+	private void updateBoard()
+	{
+	    int currentRow;
+	    for (ArrayList<Piece> spike : currentBoardState.getBoard())
+	    {
+	        for (int i = 0; i<spike.size(); i++)
+	        {
+	            currentRow = i;
+	            if (currentRow < FIRST_TOP_SPIKE_NR) currentRow = Math.abs(currentRow - (SPIKE_HEIGHT - 1));
+	            addPieceToField(new PieceHandler(spike.get(i).isWhite()), spike.get(i).getBoardPlacement(), currentRow);
+	        }
+	    }
+	}
 
     @FXML
     void fireSpikeGroupDragOver(DragEvent dragOver) 
@@ -176,84 +159,50 @@ public class BoardController
     @FXML
     void fireSpikeGroupDragDrop(DragEvent dragDrop) 
     {
-        /* TODO This ImageView of piece should be a custom node and maybe visitor pattern should be 
-         * applied if many other types should also be handled by spike groups. */
         /* TODO Implement legality of move */
-        if (dragDrop.getGestureSource() instanceof ImageView /* && dragEvent.getDragboard().hasImage() - maybe? */)
+        
+        boolean mouseLocationDebug = true;
+        
+        if (dragDrop.getGestureSource() instanceof PieceHandler /* && dragEvent.getDragboard().hasImage() - needed? */)
         {
             GridPane currentSpike = (GridPane) dragDrop.getGestureTarget();
             double spikeColumnWidth = currentSpike.getWidth()/SPIKE_WIDTH;
-            double mousePosInSpike = dragDrop.getX();
-            int hoverColumnNr = (int) (mousePosInSpike/spikeColumnWidth);
-            // Oh lord, what a mess
+            double spikeRowHeight = currentSpike.getHeight()/SPIKE_HEIGHT;
+            double mouseXPosInSpike = dragDrop.getX();
+            double mouseYPosInSpike = dragDrop.getY();
+            int hoverColumnNr = (int) (mouseXPosInSpike/spikeColumnWidth);
+            int hoverRowNr = (int) (mouseYPosInSpike/spikeRowHeight);
             int tempSpikeGroupNr = tempWhichSpikeGroup(currentSpike);
-            if (tempSpikeGroupNr < 2) hoverColumnNr = Math.abs(hoverColumnNr - (SPIKE_WIDTH - 1));
-            int boardFieldNr = tempSpikeGroupNr*SPIKE_WIDTH + hoverColumnNr;
-            
-            System.out.println("\nSpikeWidth: " + spikeColumnWidth + " Mouse Pos in group: " + mousePosInSpike);
-            System.out.println("Hovering over column: " + hoverColumnNr + " FieldNr on Board: " + boardFieldNr);
-            System.out.print("Spikegroupnr: " + tempWhichSpikeGroup(currentSpike) + "   ");
-            // TODO correct inserting when data can be retrieved from boardstate
-            // TODO Transfer PieceControllers ImageView, not just create from its picture  - addPieceToField((ImageView) dragDrop.getSource(), boardFieldNr);
-            addPieceToField(new ImageView(dragDrop.getDragboard().getImage()), boardFieldNr);
+            if (tempSpikeGroupNr < 2) hoverColumnNr = Math.abs(hoverColumnNr - (SPIKE_WIDTH - 1)); 
+            int boardFieldNr = tempSpikeGroupNr*SPIKE_WIDTH + hoverColumnNr;     
+            addPieceToField(new PieceHandler(dragDrop.getDragboard().getImage()), boardFieldNr, hoverRowNr); 
             dragDrop.setDropCompleted(true);
+            
+            if (mouseLocationDebug)
+            {
+                System.out.println("\nSpikeWidth: " + spikeColumnWidth + " X Mouse Pos: " + mouseXPosInSpike);
+                System.out.println("SpikeHeight: " + spikeRowHeight + " Y Mouse Pos: " + mouseYPosInSpike);
+                System.out.println("Hovering over column: " + hoverColumnNr + " row: " + hoverRowNr);
+                System.out.println("FieldNr on Board: " + boardFieldNr);
+                System.out.print("Spikegroupnr: " + tempWhichSpikeGroup(currentSpike) + "   ");
+            }
+            
         }
 //        dragDrop.consume();   // TODO Consume or not here?
     }
     
-	public AnchorPane getFullBoard()
-	{
-	    return fullBoard;
-	}
-	
-	public List<Node> getBoardSpikes()
-	{
-	    return boardSpikes;
-	}
-	
-	@FXML
-	public void initialize()
-	{   
-
-	}
-	
-	
-	
-	
-
-    // Temp method that inserts pieces directly in GUI until game logic is up and running
-    private void tempPieceInsertion()
+    
+    /** Clears nodes from spike groups.
+     * 
+     */
+    private void clearAllSpikes()
     {
-        tempClearAllSpikes();
-        Map<Integer, Integer> blackMap = new HashMap<Integer, Integer>()
+        for (int i = 0; i<=LAST_SPIKE_NR; i = i+SPIKE_WIDTH)
         {
-            { put(5, 5); put(7, 3); put(12, 5); put(23, 2); }
-        };
-        Map<Integer, Integer> whiteMap = new HashMap<Integer, Integer>()
-        {
-            { put(0, 2); put(11, 5); put(16, 3); put(18, 5); }
-        };
-        PieceController currentPieceController;
-        for (Map.Entry<Integer, Integer> entry: blackMap.entrySet())
-        {
-            for (int i = 0; i<entry.getValue(); i++)
-            {
-                currentPieceController = new PieceController(false, this, entry.getKey());
-                pieceArrayBlack.add(currentPieceController);
-                addPieceToField(currentPieceController.getPieceNode(), entry.getKey());
-            }
-        }
-        for (Map.Entry<Integer, Integer> entry: whiteMap.entrySet())
-        {
-            for (int i = 0; i<entry.getValue(); i++)
-            {
-                currentPieceController = new PieceController(true, this, entry.getKey());
-                pieceArrayWhite.add(currentPieceController);
-                addPieceToField(currentPieceController.getPieceNode(), entry.getKey());
-            }
+            ((GridPane) findSpikeGroup(i)).getChildren().clear();
         }
     }
-    
+
     // Temp method until game logic is up and running
     private int tempWhichSpikeGroup(GridPane mystery)
     {
@@ -264,13 +213,11 @@ public class BoardController
         throw new IllegalArgumentException("Not a known spike group.");
     }
     
-    // Temp method until game logic is up and running
-    private void tempClearAllSpikes()
-    {
-        for (int i = 0; i<=LAST_SPIKE_NR; i = i+SPIKE_WIDTH)
-        {
-            ((GridPane) findSpikeGroup(i)).getChildren().clear();
-        }
-    }
     
+    
+    @FXML
+    public void initialize()
+    {   
+        
+    }
 }
