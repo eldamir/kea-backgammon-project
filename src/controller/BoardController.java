@@ -119,9 +119,13 @@ public class BoardController
 	    return freeYPosition;
 	}
 	
+    /** Translates a spike number to its containing spike group
+     * @param spikeNumber The number of the spike in question
+     * @return Gridpane Spike is contained in
+     */
     private GridPane findSpikeGroup(int spikeNumber)
     {
-        int spikeGroup = spikeNumber/6;
+        int spikeGroup = spikeNumber/SPIKE_WIDTH;
         switch(spikeGroup)
         {
         case 0: return spikesSE;
@@ -141,14 +145,6 @@ public class BoardController
 	 * Creating and adding pieces to lists 
 	 */
 	public void addPieces(){
-//		
-//		for(int i = 1; i <= 2; i++) {
-//		    pieceArrayWhite.add(new PieceController(true, this));
-//		}
-//		
-//		for(int i = 1; i <= 0; i++) {
-//		    pieceArrayBlack.add(new PieceController(false, this));
-//		}
 	    tempPieceInsertion();
 	}
 	
@@ -161,54 +157,7 @@ public class BoardController
 	 */
 	public void startBoard()
 	{
-//		//loops through each spike and clears them.
-//		for (int i = 0; i < 24; i++) {
-//			((VBox) boardSpikes.get(i)).getChildren().clear();
-//		}
-//		
-//		//Does not create pieces if they already exist
-//		if(!(pieceArrayBlack.size() >=15) && !(pieceArrayWhite.size() >=15)){
-			addPieces();
-//		}
-//		
-		//Adds pieces to its designated position
-//		addPieceToField(pieceArrayWhite.get(0).getPieceView(), 11);
-//		addPieceToField(pieceArrayWhite.get(1).getPieceView(), 11);
-//		addPieceToField(pieceArrayWhite.get(2).getPieceView(), 11);
-//		addPieceToField(pieceArrayWhite.get(3).getPieceView(), 11);
-//		addPieceToField(pieceArrayWhite.get(4).getPieceView(), 11);
-//		
-//		addPieceToField(pieceArrayWhite.get(5).getPieceView(), 0);
-//		addPieceToField(pieceArrayWhite.get(6).getPieceView(), 0);
-//		
-//		addPieceToField(pieceArrayWhite.get(7).getPieceView(), 18);
-//		addPieceToField(pieceArrayWhite.get(8).getPieceView(), 18);
-//		addPieceToField(pieceArrayWhite.get(9).getPieceView(), 18);
-//		addPieceToField(pieceArrayWhite.get(10).getPieceView(), 18);
-//		addPieceToField(pieceArrayWhite.get(11).getPieceView(), 18);
-//		
-//		addPieceToField(pieceArrayWhite.get(12).getPieceView(), 16);
-//		addPieceToField(pieceArrayWhite.get(13).getPieceView(), 16);
-//		addPieceToField(pieceArrayWhite.get(14).getPieceView(), 16);
-//		
-//		addPieceToField(pieceArrayBlack.get(0).getPieceView(), 12);
-//		addPieceToField(pieceArrayBlack.get(1).getPieceView(), 12);
-//		addPieceToField(pieceArrayBlack.get(2).getPieceView(), 12);
-//		addPieceToField(pieceArrayBlack.get(3).getPieceView(), 12);
-//		addPieceToField(pieceArrayBlack.get(4).getPieceView(), 12);
-//		
-//		addPieceToField(pieceArrayBlack.get(5).getPieceView(), 23);
-//		addPieceToField(pieceArrayBlack.get(6).getPieceView(), 23);
-//		
-//		addPieceToField(pieceArrayBlack.get(7).getPieceView(), 5);
-//		addPieceToField(pieceArrayBlack.get(8).getPieceView(), 5);
-//		addPieceToField(pieceArrayBlack.get(9).getPieceView(), 5);
-//		addPieceToField(pieceArrayBlack.get(10).getPieceView(), 5);
-//		addPieceToField(pieceArrayBlack.get(11).getPieceView(), 5);
-//		
-//		addPieceToField(pieceArrayBlack.get(12).getPieceView(), 7);
-//		addPieceToField(pieceArrayBlack.get(13).getPieceView(), 7);
-//		addPieceToField(pieceArrayBlack.get(14).getPieceView(), 7);
+		addPieces();
 	}
 
 
@@ -271,13 +220,11 @@ public class BoardController
 	
 	
 	
-	
-	
-	
-	
-    // Temp test methods until game logic is up and running
+
+    // Temp method that inserts pieces directly in GUI until game logic is up and running
     private void tempPieceInsertion()
     {
+        tempClearAllSpikes();
         Map<Integer, Integer> blackMap = new HashMap<Integer, Integer>()
         {
             { put(5, 5); put(7, 3); put(12, 5); put(23, 2); }
@@ -301,12 +248,13 @@ public class BoardController
             for (int i = 0; i<entry.getValue(); i++)
             {
                 currentPieceController = new PieceController(true, this, entry.getKey());
-                pieceArrayBlack.add(currentPieceController);
+                pieceArrayWhite.add(currentPieceController);
                 addPieceToField(currentPieceController.getPieceNode(), entry.getKey());
             }
         }
     }
     
+    // Temp method until game logic is up and running
     private int tempWhichSpikeGroup(GridPane mystery)
     {
         if (mystery.equals(spikesSE)) return 0;
@@ -315,4 +263,14 @@ public class BoardController
         else if (mystery.equals(spikesNE)) return 3;
         throw new IllegalArgumentException("Not a known spike group.");
     }
+    
+    // Temp method until game logic is up and running
+    private void tempClearAllSpikes()
+    {
+        for (int i = 0; i<=LAST_SPIKE_NR; i = i+SPIKE_WIDTH)
+        {
+            ((GridPane) findSpikeGroup(i)).getChildren().clear();
+        }
+    }
+    
 }
