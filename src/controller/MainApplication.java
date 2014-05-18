@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+/** Main application of the Backgammon game by Dragons of the BeeGees
+ * @since April 2014
+ */
 public class MainApplication extends Application
 {
 	
@@ -20,6 +23,7 @@ public class MainApplication extends Application
 			scene.getStylesheets().add(getClass().getResource("/view/overlay/overlay.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
+			primaryStage.setTitle("Extreme Backgammon");
 			primaryStage.show();
 		} 
 		catch(Exception e) 
@@ -31,8 +35,6 @@ public class MainApplication extends Application
 	public static void main(String[] args) 
 	{
 		launch(args);
-//		OverlayController controller = new OverlayController();
-//		controller.
 	}
 
 }

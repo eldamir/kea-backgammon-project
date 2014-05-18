@@ -1,14 +1,11 @@
 package test;
 
 
-import model.dice.Dice;
 import model.internationalization.LanguageResource;
 
 import org.junit.Test;
 
-import sun.reflect.LangReflectAccess;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 
 public class LanguageResourceTest

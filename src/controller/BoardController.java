@@ -14,10 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 
-import model.board.BoardState;
-import model.piece.Piece;
-
-
 public class BoardController 
 {
     // Game fields position assignment

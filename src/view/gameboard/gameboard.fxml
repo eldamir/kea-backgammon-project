@@ -8,7 +8,7 @@
   <children>
     <ImageView id="PrimevalD.gif" fitHeight="504.0" fitWidth="924.0001220703125" layoutX="1.0" layoutY="0.0">
       <image>
-        <Image url="@../../resources/gameboard/Game-Board-BackgammonFull-jpg.jpg" />
+        <Image url="@../../resources/gameboard/Game-Board-BackgammonFull.jpg" />
       </image>
     </ImageView>
     <ImageView id="homeFields.png" fitHeight="502.9999694824219" fitWidth="98.00000762939453" layoutX="925.0" layoutY="0.0" preserveRatio="false">
@@ -20,7 +20,24 @@
     <AnchorPane fx:id="whitePrison" layoutX="443.0" layoutY="107.0" prefHeight="123.0" prefWidth="39.0" />
     <AnchorPane id="blackPrison" fx:id="whiteHome" layoutX="949.0" layoutY="24.0" prefHeight="212.00009999999747" prefWidth="47.0" />
     <AnchorPane id="blackPrison" fx:id="blackHome" layoutX="948.0" layoutY="269.0" prefHeight="208.0" prefWidth="48.0" />
-    <GridPane id="spikesSW" fx:id="spikesNE" alignment="TOP_RIGHT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="499.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="213.0" prefWidth="427.0">
+    <GridPane id="spikesSW" fx:id="spikesNE" alignment="TOP_RIGHT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="482.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="208.0" prefWidth="420.0">
+      <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.90820579710145" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.90820579710145" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.90820579710145" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.908205797101452" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.90820579710145" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.90820579710145" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
+        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
+        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
+        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
+        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane id="spikesSW" fx:id="spikesNW" alignment="TOP_LEFT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="22.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="209.0" prefWidth="420.0">
       <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
         <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
@@ -37,7 +54,7 @@
         <RowConstraints percentHeight="20.0" vgrow="NEVER" />
       </rowConstraints>
     </GridPane>
-    <GridPane id="spikesSW" fx:id="spikesNW" alignment="TOP_LEFT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="0.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="213.0" prefWidth="427.0">
+    <GridPane fx:id="spikesSW" alignment="BASELINE_LEFT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="22.0" layoutY="283.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="208.0" prefWidth="420.0">
       <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
         <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
@@ -54,24 +71,7 @@
         <RowConstraints percentHeight="20.0" vgrow="NEVER" />
       </rowConstraints>
     </GridPane>
-    <GridPane fx:id="spikesSW" alignment="BASELINE_LEFT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="0.0" layoutY="290.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="213.0" prefWidth="427.0">
-      <columnConstraints>
-        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
-        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
-        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
-        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
-        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
-        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
-      </columnConstraints>
-      <rowConstraints>
-        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-        <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-      </rowConstraints>
-    </GridPane>
-    <GridPane id="spikesSW" fx:id="spikesSE" alignment="TOP_RIGHT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="498.0" layoutY="290.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="213.0" prefWidth="427.0">
+    <GridPane id="spikesSW" fx:id="spikesSE" alignment="TOP_RIGHT" disable="false" focusTraversable="false" gridLinesVisible="false" layoutX="482.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#fireSpikeGroupDragDrop" onDragOver="#fireSpikeGroupDragOver" prefHeight="208.0" prefWidth="420.0">
       <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
         <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="16.66666" />
