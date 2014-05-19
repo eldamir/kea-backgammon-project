@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="683.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.OverlayController">
+<AnchorPane onKeyPressed="#openMenu" prefHeight="683.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.OverlayController">
   <!-- TODO Add Nodes -->
   <children>
     <VBox id="VBox" alignment="CENTER" prefHeight="768.0" prefWidth="1024.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -37,7 +37,7 @@
                 <Label id="lblDiceTwo" fx:id="lblOverlayDiceTwo" prefHeight="50.0" prefWidth="50.0" style="" text="" />
               </children>
             </HBox>
-            <Button id="btnMenu" fx:id="btnOverlayMenu" cancelButton="true" layoutX="15.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openMenu" prefHeight="40.0" styleClass="fancyButton" text="">
+            <Button id="btnMenu" fx:id="btnOverlayMenu" layoutX="15.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#menuPressed" prefHeight="40.0" styleClass="fancyButton" text="">
               <graphic>
                 <Label fx:id="btnOverlayMenuLabel" contentDisplay="LEFT" labelFor="$btnOverlayMenu" text="Menu" />
               </graphic>

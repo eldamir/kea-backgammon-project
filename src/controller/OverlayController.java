@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import model.dice.Dice;
 
@@ -161,7 +163,7 @@ public class OverlayController implements Initializable
 	/**
 	 * Enables and shows the graphical Menu component 
 	 */
-	public void showMenu(){
+	public void toggleMenu(){
 		if(gameMenuContainer.isVisible() == false 
 				&& gameMenuContainer.isDisable() == true)
 		{
@@ -186,11 +188,19 @@ public class OverlayController implements Initializable
 	 * 
 	 * @param event 
 	 */
-	public void openMenu(ActionEvent event)
+	public void menuPressed()
 	{
-		System.out.println("menu triggered");
-		showMenu();
-
+	    toggleMenu();
+	}
+	
+	public void openMenu(KeyEvent event)
+	{
+		System.out.println(event.getCode()==KeyCode.ESCAPE);
+	    	if (event.getCode()==KeyCode.ESCAPE)
+		{
+		    System.out.println("toggle menu");
+		    toggleMenu();
+		}
 	}
 
 	/**

@@ -24,7 +24,7 @@
     -fx-border-radius: 8;
     -fx-background-radius: 11;
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, rgba(245, 245, 245, 1), rgba(200, 200, 200, 1));
-    -fx-border-color:rgba(216, 110, 58, 1);
+     -fx-border-color: rgba(216, 0, 0, 1);
     -fx-border-width: 5;
     -fx-border-style: solid;
 }

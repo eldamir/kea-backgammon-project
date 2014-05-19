@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 /**
  * 
@@ -76,7 +78,7 @@ public class OverlayGameMenuController implements Initializable{
 	{
 		System.out.println("New game triggered");
 		boardController.startBoard();
-		overlayController.showMenu();
+		overlayController.toggleMenu();
 	}
 	
 	/**
@@ -88,7 +90,7 @@ public class OverlayGameMenuController implements Initializable{
 	public void loadPressed(ActionEvent event)
 	{
 		System.out.println("Load triggered");
-		overlayController.showMenu();
+		overlayController.toggleMenu();
 	}
 	
 	/**
@@ -100,7 +102,7 @@ public class OverlayGameMenuController implements Initializable{
 	public void savePressed(ActionEvent event)
 	{
 		System.out.println("Save triggered");
-		overlayController.showMenu();
+		overlayController.toggleMenu();
 	}
 	
 	/**
@@ -111,7 +113,7 @@ public class OverlayGameMenuController implements Initializable{
 	public void logOutPressed(ActionEvent event)
 	{
 		System.out.println("Log out triggered");
-		overlayController.showMenu();
+		overlayController.toggleMenu();
 	}
 	
 	/**
@@ -132,10 +134,24 @@ public class OverlayGameMenuController implements Initializable{
 	 * 
 	 * @param event
 	 */
-	public void resumePressed(ActionEvent event)
+	public void resumePressed()
 	{
-		System.out.println("Resume triggered");
-		overlayController.showMenu();
+		resume();
+	}
+	
+//	public void resume(KeyEvent event)
+//	{
+//		if (event.getCode()==KeyCode.ESCAPE)
+//		{
+//		
+//		    resume();
+//		}
+//	}
+
+	private void resume()
+	{
+	    System.out.println("Resume triggered");
+	    overlayController.toggleMenu();
 	}
 	
 	public void setBtnLblGameMenuNewGame(String st){
