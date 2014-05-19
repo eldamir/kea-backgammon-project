@@ -1,171 +1,132 @@
 package model.board;
+
 import java.util.ArrayList;
+
 import model.piece.Piece;
 
 
 /**
- * Class that represents the state of the board
- * according to the pieces positions on the
- * board fields.
- * 
  * @version 1.1
  * @since 2014-05-08
  */
-public class BoardState 
+public class BoardState
 {
-	/**
-	 * this is an arraylist that contains the state of the board
-	 * 
-	 * the index 0 is reserved for the white home position
-	 * and the rest of the fields get the rest of the 
-	 * indexes counter-clockwise. 
-	 * 
-	 * the field in the middle is separated in two fields one for the user and
-	 * the other for the computer.
-	 */
-	private ArrayList[] board = new ArrayList[28];
-	
-	private static boolean turn = true;
-	
-	/**
-	 * Initialize default state
-	 */
-	public BoardState()
-	{
-		for (int i = 0; i < this.board.length; i++) {
-			this.board[i] = new ArrayList<Piece>();
-		}
-		
-		for(int i = 1; i <= 2; i++){
-			this.board[1].add(new Piece(false, 1));
-		}
-		
-		for(int i = 1; i <= 5; i++){
-			this.board[6].add(new Piece(true, 6));
-		}
-		
-		for(int i = 1; i <= 3; i++){
-			this.board[8].add(new Piece(true, 8));
-		}
-		
-		for(int i = 1; i <= 5; i++){
-			this.board[12].add(new Piece(false, 12));
-		}
-		
-		for(int i = 1; i <= 5; i++){
-			this.board[13].add(new Piece(true, 13));
-		}
-		
-		for(int i = 1; i <= 3; i++){
-			this.board[17].add(new Piece(false, 17));
-		}
-		
-		for(int i = 1; i <= 5; i++){
-			this.board[19].add(new Piece(false, 19));
-		}
-		
-		for(int i = 1; i <= 2; i++){
-			this.board[24].add(new Piece(true, 24));
-		}
-		
-//		if(spike.size() == 2 && (!spike.get(0).isWhite()))
-//		{
-//			board[0] = spike;
-//		}
-//		else if(spike.size() == 2 && spike.get(0).isWhite())
-//		{
-//			board[23] = spike;
-//		}
-//		else if(board[5]== null && spike.size() == 5 && spike.get(0).isWhite())
-//		{
-//			board[5] = spike;
-//		}
-//		else if(board[18] == null && spike.size() == 5 && (!spike.get(0).isWhite()))
-//		{
-//			board[18] = spike;
-//		}
-//		else if(spike.size() == 3 && spike.get(0).isWhite())
-//		{
-//		   board[7] = spike;	
-//		}
-//		else if(spike.size() == 3 && (!spike.get(0).isWhite()))
-//		{
-//		   board[16] = spike;	
-//		}
-//		else if(spike.size() == 5 && (!spike.get(0).isWhite()))
-//		{
-//			board[11] = spike;
-//		}
-//		else if(spike.size() == 5 && spike.get(0).isWhite())
-//		{
-//			board[12] = spike;
-//		}
-	}
-	
-	/** 
-	 * @param current boardState gets updated
-	 * @param Move are used to get the piece which will be moved to a chosen spike
-	 */
-	public BoardState(BoardState previousBoardState, Move newMove)
-	{
-		
-		int endSpikePos = newMove.getPosition();
-		Piece p = newMove.getPiece();
-		int currentSpikePos = p.getBoardPlacement();
-		
-		
-		for(int i=1; i<=24; i++)
-		{
-		    
-			 ArrayList<Piece> spike = previousBoardState.board[i];
-			 board[i].addAll(spike);
-		}
-		
-		for(int i=0; i<board[currentSpikePos].size(); i++)
-		{
-			if(board[currentSpikePos].get(i).equals(p))
-			{
-				board[currentSpikePos].remove(i);
-				board[endSpikePos].add(p);
-				
-				p.setBoardPlacement(endSpikePos);
-			}
-		}
-		
-		
-		
-      }
-	
-	
-	
-	/**
-	 * 
-	 * @return current state of the board until updated
-	 */
-	public ArrayList[] getBoard()
-	{
-		return this.board;
-	}
-	
-	/**
-	 * 
-	 * @param Turn
-	 * @return if true then user is playing, if false computer is playing
-	 */
-	public void shiftTurn()
-	{
-		this.turn = !turn;
-	}
-	
-	/**
-	 * 
-	 * @param n Integer that represents a specific spike(board field) on the board
-	 * @return ArrayList of pieces from the given spike(board field)
-	 */
-	public ArrayList<Piece> getSpike(int n)
-	{
-		ArrayList<Piece> spike = board[n];
-		return spike;
-	}
+    /**
+     * this is an arraylist that contains the state of the board
+     * <p/>
+     * the index 0 is reserved for the white home position
+     * and the rest of the fields get the rest of the
+     * indexes counter-clockwise.
+     * <p/>
+     * the field in the middle is separated in two fields one for the user and
+     * the other for the computer.
+     */
+    private ArrayList[] board = new ArrayList[28];
+
+    private static boolean turn = true;
+
+    /**
+     * Initialize default state
+     */
+    public BoardState()
+    {
+        for (int i = 0; i < this.board.length; i++)
+        {
+            this.board[i] = new ArrayList<Piece>();
+        }
+
+        for (int i = 1; i <= 2; i++)
+        {
+            this.board[23].add(new Piece(false, 23));
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            this.board[18].add(new Piece(true, 18));
+        }
+
+        for (int i = 1; i <= 3; i++)
+        {
+            this.board[16].add(new Piece(true, 16));
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            this.board[12].add(new Piece(false, 12));
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            this.board[11].add(new Piece(true, 11));
+        }
+
+        for (int i = 1; i <= 3; i++)
+        {
+            this.board[7].add(new Piece(false, 7));
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            this.board[5].add(new Piece(false, 5));
+        }
+
+        for (int i = 1; i <= 2; i++)
+        {
+            this.board[0].add(new Piece(true, 0));
+        }
+    }
+
+    /**
+     * @param current boardState gets updated
+     * @param Move    are used to get the piece which will be moved to a chosen spike
+     */
+    public BoardState(BoardState previousBoardState, Move newMove)
+    {
+        int endSpikePos = newMove.getPosition();
+        Piece pieceToBeMoved = newMove.getPiece();
+        int currentSpikePos = pieceToBeMoved.getBoardPlacement();
+
+
+        // Copy the state of the previous board
+        for (int i = 0; i <= 27; i++)
+        {
+
+            ArrayList<Piece> spike = previousBoardState.board[i];
+            board[i].addAll(spike);
+        }
+
+        // Remove piece from current position
+        board[currentSpikePos].remove(pieceToBeMoved);
+
+        // Add piece to new position
+        board[endSpikePos].add(pieceToBeMoved);
+
+        // Update piece position variable
+        pieceToBeMoved.setBoardPlacement(endSpikePos);
+    }
+
+
+    /**
+     * @return current state of the board until updated
+     */
+    public ArrayList[] getBoard()
+    {
+        return this.board;
+    }
+
+    /**
+     * @param Turn
+     * @return if true then user is playing, if false computer is playing
+     */
+    public void shiftTurn()
+    {
+        this.turn = !turn;
+    }
+
+    public ArrayList<Piece> getSpike(int n)
+    {
+        ArrayList<Piece> spike = board[n];
+        return spike;
+    }
 
 }
