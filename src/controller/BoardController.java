@@ -12,7 +12,11 @@ import javafx.scene.layout.GridPane;
 import model.piece.Piece;
 import model.board.BoardState;
 
-
+/**
+ * 
+ * Class functions as a controller for the graphical game board component 
+ *
+ */
 public class BoardController 
 {
     // Game fields position assignment

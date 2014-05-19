@@ -4,6 +4,10 @@ import model.piece.Piece;
 
 
 /**
+ * Class that represents the state of the board
+ * according to the pieces positions on the
+ * board fields.
+ * 
  * @version 1.1
  * @since 2014-05-08
  */
@@ -104,10 +108,7 @@ public class BoardState
 	 */
 	public BoardState(BoardState previousBoardState, Move newMove)
 	{
-		/**
-		 * 
-		 * så pos er en bestemt spice position
-		 */
+		
 		int endSpikePos = newMove.getPosition();
 		Piece p = newMove.getPiece();
 		int currentSpikePos = p.getBoardPlacement();
@@ -156,6 +157,11 @@ public class BoardState
 		this.turn = !turn;
 	}
 	
+	/**
+	 * 
+	 * @param n Integer that represents a specific spike(board field) on the board
+	 * @return ArrayList of pieces from the given spike(board field)
+	 */
 	public ArrayList<Piece> getSpike(int n)
 	{
 		ArrayList<Piece> spike = board[n];

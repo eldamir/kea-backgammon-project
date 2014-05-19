@@ -38,6 +38,13 @@ public class Game
 		
 	}
 	
+	/**
+	 * Moves the piece to the selected spike (board position)
+	 * and adds the new board state to the list of board states
+	 * 
+	 * @param piece The piece that is moved
+	 * @param selectedSpike The board field where the piece is to be moved
+	 */
 	public void move(Piece piece, int selectedSpike)
 	{
 		Move move = new Move(piece, currentDiceRolls, selectedSpike, boardStates.get(boardStates.size())); 

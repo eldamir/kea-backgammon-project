@@ -23,5 +23,16 @@ public class BoardControllerTest
 		fail("Not yet implemented");
 	}
 
+	@Test
+	public void testInitialize()
+	{
+		System.out.println("test");
+		System.out.println("countOfSpikes: " + boardController.getBoardSpikes().size());
+		boardController.initialize();
+		System.out.println("countOfSpikes: " + boardController.getBoardSpikes().size());
+		int countOfSpikes = boardController.getBoardSpikes().size();
+		
+		assertEquals(24, countOfSpikes);
+	}
 
 }

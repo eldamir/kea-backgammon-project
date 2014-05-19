@@ -21,7 +21,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import model.dice.Dice;
 
-
+/**
+ * 
+ * Controller for the graphical overlay component
+ *
+ */
 public class OverlayController implements Initializable
 {
 
@@ -113,6 +117,12 @@ public class OverlayController implements Initializable
 		
 	}		
 	
+	/**
+	 * Triggered when the user presses the "Roll Dice" button.
+	 * Rolls two die, and invokes the setDice() method
+	 * 
+	 * @param event
+	 */
 	public void rollDice(ActionEvent event)
 	{	dice[0].roll();
 		dice[1].roll();
@@ -124,6 +134,12 @@ public class OverlayController implements Initializable
 		// btnOverlayRollDice.setDisable(true);
 	}
 
+	/**
+	 * Sets the dice labels with dice images, that corresponds to the values of the face values of the passed die 
+	 * 
+	 * @param dice1 
+	 * @param dice2
+	 */
 	public void setDice(Dice dice1, Dice dice2)
 	{
 
@@ -142,6 +158,9 @@ public class OverlayController implements Initializable
 		lblOverlayDiceTwo.setGraphic(new ImageView(image2));
 	}
 	
+	/**
+	 * Enables and shows the graphical Menu component 
+	 */
 	public void showMenu(){
 		if(gameMenuContainer.isVisible() == false 
 				&& gameMenuContainer.isDisable() == true)
@@ -162,6 +181,11 @@ public class OverlayController implements Initializable
 		}
 	}
 	
+	/**
+	 * Opens the graphical menu component
+	 * 
+	 * @param event 
+	 */
 	public void openMenu(ActionEvent event)
 	{
 		System.out.println("menu triggered");
@@ -169,6 +193,11 @@ public class OverlayController implements Initializable
 
 	}
 
+	/**
+	 * Triggered when user presses the "Hint" button.
+	 * No application logic implemented !!!
+	 * @param event
+	 */
 	public void triggerHint(ActionEvent event)
 	{
 		System.out.println("hint triggered");

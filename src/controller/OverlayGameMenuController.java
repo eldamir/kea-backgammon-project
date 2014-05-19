@@ -12,6 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+/**
+ * 
+ * Controller class for the graphical game menu component
+ *
+ */
 public class OverlayGameMenuController implements Initializable{
 	@FXML
 	private Button btnGameMenuNewGame;
@@ -62,6 +67,11 @@ public class OverlayGameMenuController implements Initializable{
 		setBtnLblGameMenuReturn(LanguageResource.getText("btnGameMenuResume"));
 	}
 	
+	/**
+	 * Triggered when "New game" button is pressed.
+	 * Loads the game board with the default set up. 
+	 * @param event
+	 */
 	public void newGamePressed(ActionEvent event)
 	{
 		System.out.println("New game triggered");
@@ -69,30 +79,59 @@ public class OverlayGameMenuController implements Initializable{
 		overlayController.showMenu();
 	}
 	
+	/**
+	 * Triggered when the "Load" button is pressed.
+	 * No application logic is yet implemented.
+	 * 
+	 * @param event
+	 */
 	public void loadPressed(ActionEvent event)
 	{
 		System.out.println("Load triggered");
 		overlayController.showMenu();
 	}
 	
+	/**
+	 * Triggered when the "Save" button is pressed.
+	 * No application logic is yet implemented.
+	 * 
+	 * @param event
+	 */
 	public void savePressed(ActionEvent event)
 	{
 		System.out.println("Save triggered");
 		overlayController.showMenu();
 	}
 	
+	/**
+	 * Triggered when the "Log out" button is pressed.
+	 * No application logic is yet implemented.
+	 * @param event
+	 */
 	public void logOutPressed(ActionEvent event)
 	{
 		System.out.println("Log out triggered");
 		overlayController.showMenu();
 	}
 	
+	/**
+	 * Triggered when the "Quit" button is pressed.
+	 * Exists the running application
+	 * 
+	 * @param event
+	 */
 	public void quitPressed(ActionEvent event)
 	{
 		System.out.println("Quit triggered");
 		System.exit(0);
 	}
 	
+	/**
+	 * Triggered when the "Resume" button is pressed.
+	 * Closes the game menu component and returns to the game
+	 * 
+	 * @param event
+	 */
 	public void resumePressed(ActionEvent event)
 	{
 		System.out.println("Resume triggered");
